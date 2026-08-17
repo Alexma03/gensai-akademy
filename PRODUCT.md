@@ -10,7 +10,7 @@ Adolescentes y adultos que quieren reconocer su talento mediante el Geniotipo, f
 
 ## Product Purpose
 
-La web presenta a Mary Garzón como profesional visible y a Gensai como la marca que respalda tres áreas: Geniotipo para adolescentes y adultos, AACC para familias y AACC para adultos. Conserva el sistema visual "Estanque claro" y conduce al test gratuito o al contacto previo por WhatsApp según la oferta.
+La web presenta a Mary Garzón como profesional visible y a Gensai como la marca que respalda tres áreas: Geniotipo para adolescentes y adultos, AACC para adolescentes y AACC para adultos. Conserva el sistema visual "Estanque claro" y conduce al test gratuito o al contacto previo por WhatsApp según la oferta.
 
 ## Brand Personality
 

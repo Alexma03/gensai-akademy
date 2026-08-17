@@ -17,7 +17,7 @@ const services = [
   },
   {
     icon: 'users' as const,
-    title: 'AACC para familias',
+    title: 'AACC para adolescentes',
     description: 'Orientación educativa y emocional para familias con un menor que ya cuenta con identificación oficial.',
     bullets: ['Primera sesión conjunta', 'Herramientas para el día a día', 'Continuidad individual si encaja'],
     href: '/altas-capacidades-familias',
@@ -41,7 +41,7 @@ const principles = [
 
 const CATEGORY_META = {
   geniotipo: { label: 'Geniotipo', accent: 'green' as const },
-  'altas-capacidades-familias': { label: 'AACC familias', accent: 'pink' as const },
+  'altas-capacidades-familias': { label: 'AACC adolescentes', accent: 'pink' as const },
   'altas-capacidades-adultos': { label: 'AACC adultos', accent: 'green' as const },
 };
 
@@ -132,12 +132,26 @@ const posts = (await getCollection('blog'))
 </section>
 
 <section class="bg-white py-20 sm:py-24">
-  <div class="page-container grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16">
-    <div><Badge tone="green" icon="award">Formación</Badge><h2 class="mt-4 text-3xl leading-tight sm:text-4xl">Preparación con un marco claro</h2></div>
+  <div class="page-container grid items-start gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16">
+    <div>
+      <Badge tone="green" icon="award">Formación</Badge>
+      <h2 class="mt-4 text-3xl leading-tight tracking-[-0.015em] sm:text-4xl">Preparación con un marco claro</h2>
+      <p class="mt-5 max-w-lg text-sm leading-relaxed text-brand-quiet sm:text-[15px]">Inteligencia emocional, altas capacidades y metodología Geniotipo. Los títulos y la credencial digital se comprueban en Sobre mí.</p>
+      <Button href="/sobre-mi#formacion" variant="ghost" class="mt-6 -ml-3" arrow>Ver credenciales verificables</Button>
+    </div>
     <ul class="divide-y divide-brand-line border-y border-brand-line">
-      <li class="py-5"><strong class="block text-sm text-brand-ink">Experta Universitaria en Inteligencia Emocional</strong><span class="mt-1 block text-sm text-brand-quiet">Especializada en Educación Emocional · UNIR, 2025</span></li>
-      <li class="py-5"><strong class="block text-sm text-brand-ink">Metodología Geniotipo y Psicogenium</strong><span class="mt-1 block text-sm text-brand-quiet">Tony Estruch, fundador del Geniotipo · 2025</span></li>
-      <li class="py-5"><strong class="block text-sm text-brand-ink">Máster en Altas Capacidades y Desarrollo del Talento</strong><span class="mt-1 block text-sm text-brand-quiet">UNIR, 2026</span></li>
+      <li class="py-5">
+        <strong class="block text-sm text-brand-ink">Programa Avanzado en Inteligencia Emocional con Especialización en Educación Emocional</strong>
+        <span class="mt-1 block text-sm text-brand-quiet">UNIR · 2025</span>
+      </li>
+      <li class="py-5">
+        <strong class="block text-sm text-brand-ink">Certificado en Metodología Geniotipo y Psicogenium</strong>
+        <span class="mt-1 block text-sm text-brand-quiet">Tony Estruch, fundador del Geniotipo · 2025</span>
+      </li>
+      <li class="py-5">
+        <strong class="block text-sm text-brand-ink">Máster de Formación Permanente en Altas Capacidades y Desarrollo del Talento</strong>
+        <span class="mt-1 block text-sm text-brand-quiet">UNIR · 2026</span>
+      </li>
     </ul>
   </div>
 </section>
@@ -154,14 +168,16 @@ const posts = (await getCollection('blog'))
   </div>
 </section>
 
-<section class="cta-pattern py-20 text-white sm:py-24">
-  <div class="page-container text-center">
-    <h2 class="mx-auto max-w-3xl text-4xl text-white sm:text-5xl">Empieza por el recorrido que hoy tiene sentido para ti</h2>
-    <p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white">Puedes conocer el Geniotipo, explorar el acompañamiento familiar o descubrir el coaching para adultos con altas capacidades.</p>
-    <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-      <Button href="/geniotipo" variant="white">Geniotipo</Button>
-      <Button href="/altas-capacidades-familias" variant="outline-white">AACC familias</Button>
-      <Button href="/altas-capacidades-adultos" variant="outline-white">AACC adultos</Button>
+<section class="cta-pattern py-16 sm:py-20">
+  <div class="page-container">
+    <div class="rounded-[2rem] border border-brand-line bg-white px-6 py-10 text-center shadow-ambient sm:px-12 sm:py-14">
+      <h2 class="mx-auto max-w-3xl text-4xl sm:text-5xl">Empieza por el recorrido que hoy tiene sentido para ti</h2>
+      <p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-brand-quiet">Puedes conocer el Geniotipo, explorar el acompañamiento familiar o descubrir el coaching para adultos con altas capacidades.</p>
+      <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <Button href="/geniotipo" variant="green">Geniotipo</Button>
+        <Button href="/altas-capacidades-familias" variant="outline-green">AACC adolescentes</Button>
+        <Button href="/altas-capacidades-adultos" variant="outline-green">AACC adultos</Button>
+      </div>
     </div>
   </div>
 </section>

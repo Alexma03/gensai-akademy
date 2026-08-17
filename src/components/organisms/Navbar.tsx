@@ -1,14 +1,31 @@
-import { useEffect, useState, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { GENIOTIPO_TEST_URL } from '../../config/links';
 
 interface NavbarProps {
   currentPath: string;
 }
 
-const items = [
-  { label: 'Geniotipo', href: '/geniotipo' },
-  { label: 'AACC familias', href: '/altas-capacidades-familias' },
-  { label: 'AACC adultos', href: '/altas-capacidades-adultos' },
+const sections = [
+  {
+    id: 'geniotipo',
+    label: 'Geniotipo',
+    items: [
+      { label: 'Visión general', description: 'Qué es y cómo funciona', href: '/geniotipo' },
+      { label: 'Para adolescentes', description: 'Talento y orientación', href: '/geniotipo-adolescentes' },
+      { label: 'Para adultos', description: 'Claridad y dirección', href: '/geniotipo-adultos' },
+    ],
+  },
+  {
+    id: 'altas-capacidades',
+    label: 'Altas capacidades',
+    items: [
+      { label: 'Para adolescentes', description: 'Acompañamiento a menores', href: '/altas-capacidades-familias' },
+      { label: 'Para adultos', description: 'Coaching tras la identificación', href: '/altas-capacidades-adultos' },
+    ],
+  },
+] as const;
+
+const directItems = [
   { label: 'Sobre mí', href: '/sobre-mi' },
   { label: 'Blog', href: '/blog' },
 ];
@@ -29,23 +46,48 @@ function MenuIcon({ close }: { close: boolean }) {
   );
 }
 
+function ChevronIcon({ open }: { open: boolean }) {
+  return <SvgIcon className={`size-3.5 transition-transform duration-200 ${open ? 'rotate-180' : ''}`}><path d="m6 9 6 6 6-6" /></SvgIcon>;
+}
+
 export default function Navbar({ currentPath }: NavbarProps) {
+  const navRef = useRef<HTMLElement>(null);
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
 
   useEffect(() => {
     const updateScrolled = () => setScrolled(window.scrollY > 12);
     const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setMobileOpen(false);
+      if (event.key === 'Escape') {
+        const trigger = navRef.current?.querySelector<HTMLButtonElement>('[aria-expanded="true"]');
+        setMobileOpen(false);
+        setOpenMenu(null);
+        requestAnimationFrame(() => trigger?.focus());
+      }
+    };
+    const closeOnOutsideClick = (event: PointerEvent) => {
+      if (!navRef.current?.contains(event.target as Node)) setOpenMenu(null);
+    };
+
+    const syncNavHeight = () => {
+      const nav = navRef.current;
+      if (nav) document.documentElement.style.setProperty('--nav-height', `${nav.offsetHeight}px`);
     };
 
     updateScrolled();
+    syncNavHeight();
+    const heightObserver = new ResizeObserver(syncNavHeight);
+    if (navRef.current) heightObserver.observe(navRef.current);
     window.addEventListener('scroll', updateScrolled, { passive: true });
     window.addEventListener('keydown', closeOnEscape);
+    window.addEventListener('pointerdown', closeOnOutsideClick);
 
     return () => {
+      heightObserver.disconnect();
       window.removeEventListener('scroll', updateScrolled);
       window.removeEventListener('keydown', closeOnEscape);
+      window.removeEventListener('pointerdown', closeOnOutsideClick);
     };
   }, []);
 
@@ -59,30 +101,70 @@ export default function Navbar({ currentPath }: NavbarProps) {
   }, [mobileOpen]);
 
   const isActive = (href: string) => href !== '/' && currentPath.startsWith(href);
+  const isSectionActive = (section: (typeof sections)[number]) => section.items.some((item) => currentPath === item.href);
+  const compact = scrolled;
+  const navMotion = 'duration-300 ease-gensai';
+  const linkClass = (active: boolean) =>
+    `inline-flex items-center gap-1 rounded-full font-medium tracking-[-0.01em] transition-[color,background-color,padding,font-size,min-height] ${navMotion} ${compact ? 'min-h-10 px-3 py-2 text-[13px] xl:px-3.5' : 'min-h-11 px-3.5 py-2.5 text-sm xl:px-4'} ${active ? 'bg-brand-green/20 text-brand-green-accessible-deep' : 'text-brand-slate hover:bg-brand-green/20 hover:text-brand-ink'}`;
 
   return (
-    <nav aria-label="Navegación principal" className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-300 ${scrolled || mobileOpen ? 'border-brand-line bg-[#fdfefb]/95 shadow-nav backdrop-blur-md' : 'border-transparent bg-transparent'}`}>
-      <div className="mx-auto flex w-[min(100%-2rem,80rem)] items-center justify-between py-1.5">
-        <a href="/" aria-label="Mary Garzón y Gensai Akademy, inicio" className="inline-flex items-center gap-3">
-          <img src="/logo.jpeg" alt="" width="500" height="500" className="size-9 object-contain sm:size-10" />
+    <nav ref={navRef} aria-label="Navegación principal" className={`fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color,box-shadow,backdrop-filter] ${navMotion} ${scrolled || mobileOpen || openMenu ? 'border-brand-line bg-[#fdfefb]/95 shadow-nav backdrop-blur-md' : 'border-transparent bg-transparent'}`}>
+      <div className={`mx-auto flex w-[min(100%-2rem,80rem)] items-center justify-between transition-[padding] ${navMotion} ${compact ? 'py-1.5' : 'py-3 sm:py-3.5'}`}>
+        <a href="/" aria-label="Mary Garzón y Gensai Akademy, inicio" className={`inline-flex items-center transition-[gap] ${navMotion} ${compact ? 'gap-3' : 'gap-4'}`}>
+          <img src="/logo.jpeg" alt="" width="500" height="500" className={`object-contain transition-[width,height] ${navMotion} ${compact ? 'size-9 sm:size-10' : 'size-16 sm:size-[4.5rem]'}`} />
           <span className="hidden sm:block">
-            <span className="block font-serif text-[15px] font-medium tracking-[-0.01em] text-brand-ink">Mary Garzón</span>
-            <span className="block text-[10px] font-semibold tracking-[0.08em] text-brand-green-accessible">GENSAI AKADEMY</span>
+            <span className={`block font-serif font-medium tracking-[-0.01em] text-brand-ink transition-[font-size] ${navMotion} ${compact ? 'text-[15px]' : 'text-xl sm:text-2xl'}`}>Mary Garzón</span>
+            <span className={`block font-semibold tracking-[0.08em] text-brand-green-accessible transition-[font-size] ${navMotion} ${compact ? 'text-[10px]' : 'text-[13px] sm:text-sm'}`}>GENSAI AKADEMY</span>
           </span>
         </a>
 
-        <div className="hidden items-center gap-1 lg:flex">
-          {items.map((item) => (
+        <div className={`hidden items-center lg:flex transition-[gap] ${navMotion} ${compact ? 'gap-1' : 'gap-1.5'}`}>
+          {sections.map((section) => {
+            const open = openMenu === section.id;
+            const active = isSectionActive(section);
+            return (
+              <div key={section.id} className="relative">
+                <button
+                  type="button"
+                  aria-expanded={open}
+                  aria-controls={`${section.id}-menu`}
+                  onClick={() => setOpenMenu(open ? null : section.id)}
+                  className={linkClass(active)}
+                >
+                  {section.label}
+                  <ChevronIcon open={open} />
+                </button>
+                {open ? (
+                  <div id={`${section.id}-menu`} className="absolute left-1/2 top-full w-72 -translate-x-1/2 pt-2">
+                    <div className="rounded-2xl bg-white p-2 shadow-ambient">
+                      {section.items.map((item) => (
+                        <a
+                          key={item.href}
+                          href={item.href}
+                          aria-current={currentPath === item.href ? 'page' : undefined}
+                          className={`block rounded-xl px-4 py-3 transition-colors ${currentPath === item.href ? 'bg-brand-green/20' : 'hover:bg-brand-green/20'}`}
+                        >
+                          <span className="block text-sm font-semibold text-brand-ink">{item.label}</span>
+                          <span className="mt-0.5 block text-xs text-brand-quiet">{item.description}</span>
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                ) : null}
+              </div>
+            );
+          })}
+          {directItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
               aria-current={isActive(item.href) ? 'page' : undefined}
-              className={`inline-flex min-h-10 items-center rounded-full px-3 py-2 text-[13px] font-medium tracking-[-0.01em] transition-colors xl:px-3.5 ${isActive(item.href) ? 'bg-brand-mist text-brand-green-accessible-deep' : 'text-brand-slate hover:bg-brand-mist hover:text-brand-ink'}`}
+              className={linkClass(isActive(item.href))}
             >
               {item.label}
             </a>
           ))}
-          <a href={GENIOTIPO_TEST_URL} target="_blank" rel="noopener noreferrer" className="ml-2 inline-flex min-h-10 items-center rounded-full bg-brand-green-accessible px-5 py-2 text-[13px] font-semibold text-white transition duration-200 hover:bg-brand-green-accessible-deep">
+          <a href={GENIOTIPO_TEST_URL} target="_blank" rel="noopener noreferrer" className={`ml-2 inline-flex items-center rounded-full bg-brand-green-accessible font-semibold text-white transition-[background-color,padding,font-size,min-height] ${navMotion} hover:bg-brand-green-accessible-deep ${compact ? 'min-h-10 px-5 py-2 text-[13px]' : 'min-h-11 px-6 py-2.5 text-sm'}`}>
             Test gratuito
           </a>
         </div>
@@ -92,17 +174,36 @@ export default function Navbar({ currentPath }: NavbarProps) {
           aria-expanded={mobileOpen}
           aria-controls="mobile-menu"
           aria-label={mobileOpen ? 'Cerrar menú' : 'Abrir menú'}
-          onClick={() => setMobileOpen((open) => !open)}
-          className="grid size-10 place-items-center rounded-full text-brand-slate transition-colors hover:bg-brand-mist lg:hidden"
+          onClick={() => {
+            setMobileOpen((open) => !open);
+            setOpenMenu(null);
+          }}
+          className="grid size-10 place-items-center rounded-full text-brand-slate transition-colors hover:bg-brand-green/20 lg:hidden"
         >
           <MenuIcon close={mobileOpen} />
         </button>
       </div>
 
       {mobileOpen ? (
-        <div id="mobile-menu" className="fixed inset-x-0 top-[64px] h-[calc(100dvh-64px)] overflow-y-auto border-t border-brand-line bg-[#fdfefb] px-5 py-5 sm:top-[72px] sm:h-[calc(100dvh-72px)] lg:hidden">
+        <div id="mobile-menu" className="absolute inset-x-0 top-full h-[calc(100dvh-100%)] overflow-y-auto border-t border-brand-line bg-[#fdfefb] px-5 py-5 lg:hidden">
           <div className="mx-auto max-w-lg pb-8">
-            {items.map((item) => (
+            {sections.map((section) => (
+              <div key={section.id} className="border-b border-brand-line py-4 first:pt-0">
+                <p className="mb-1 text-sm font-semibold text-brand-green-accessible-deep">{section.label}</p>
+                {section.items.map((item) => (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    aria-current={currentPath === item.href ? 'page' : undefined}
+                    onClick={() => setMobileOpen(false)}
+                    className={`flex min-h-11 items-center rounded-lg px-3 text-[15px] font-medium ${currentPath === item.href ? 'bg-brand-green/20 text-brand-green-accessible-deep' : 'text-brand-ink'}`}
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </div>
+            ))}
+            {directItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}

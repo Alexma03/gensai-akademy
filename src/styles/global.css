@@ -33,7 +33,7 @@
 
 :root {
   color-scheme: light;
-  --nav-height: 72px;
+  --nav-height: 100px;
 }
 
 html {
@@ -108,12 +108,9 @@ textarea {
 }
 
 .cta-pattern {
-  background-color: #3f741f;
+  background: #f4f8f0;
 }
 
-.cta-pattern h1,
-.cta-pattern h2,
-.cta-pattern h3,
 .footer-gradient h2 {
   color: #fff;
 }
@@ -266,7 +263,7 @@ textarea {
 
 @media (max-width: 639px) {
   :root {
-    --nav-height: 64px;
+    --nav-height: 88px;
   }
 
   .page-container {

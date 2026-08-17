@@ -95,7 +95,13 @@ const faqItems = [
 
   <FAQ items={faqItems} heading="Preguntas frecuentes sobre el coaching AACC" />
 
-  <section class="cta-pattern py-20 text-white sm:py-24">
-    <div class="page-container text-center"><h2 class="mx-auto max-w-3xl text-4xl text-white sm:text-5xl">Convierte lo que sabes de ti en un siguiente paso</h2><p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white">Cuéntale a Mary qué quieres trabajar. Antes de pagar, confirmará si puede ayudarte y cómo abordaría el proceso.</p><Button href={WHATSAPP_URL} disabled={!WHATSAPP_URL} external={Boolean(WHATSAPP_URL)} variant="white" size="lg" class="mt-8" arrow>Escribir por WhatsApp</Button></div>
+  <section class="cta-pattern py-16 sm:py-20">
+    <div class="page-container">
+      <div class="rounded-[2rem] border border-brand-line bg-white px-6 py-10 text-center shadow-ambient sm:px-12 sm:py-14">
+        <h2 class="mx-auto max-w-3xl text-4xl sm:text-5xl">Convierte lo que sabes de ti en un siguiente paso</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-brand-quiet">Cuéntale a Mary qué quieres trabajar. Antes de pagar, confirmará si puede ayudarte y cómo abordaría el proceso.</p>
+        <Button href={WHATSAPP_URL} disabled={!WHATSAPP_URL} external={Boolean(WHATSAPP_URL)} variant="green" size="lg" class="mt-8" arrow>Escribir por WhatsApp</Button>
+      </div>
+    </div>
   </section>
 </BaseLayout>

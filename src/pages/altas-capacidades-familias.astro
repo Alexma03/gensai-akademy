@@ -27,7 +27,7 @@ const faqItems = [
   description="Acompañamiento online para familias con menores ya identificados con altas capacidades: educación emocional, claridad y próximos pasos."
   canonicalPath="/altas-capacidades-familias"
 >
-  <PageHero badge="Altas capacidades · Familias" tone="pink" description="Una primera sesión conjunta para escuchar al menor y a sus tutores, comprender la situación y decidir próximos pasos.">
+  <PageHero badge="Altas capacidades · Adolescentes" tone="pink" description="Una primera sesión conjunta para escuchar al menor y a sus tutores, comprender la situación y decidir próximos pasos.">
     Comprender lo que vive tu hijo para acompañarlo con más claridad
   </PageHero>
 
@@ -95,7 +95,13 @@ const faqItems = [
 
   <FAQ items={faqItems} heading="Preguntas frecuentes para familias" />
 
-  <section class="cta-pattern py-20 text-white sm:py-24">
-    <div class="page-container text-center"><h2 class="mx-auto max-w-3xl text-4xl text-white sm:text-5xl">Cuéntame qué estáis viviendo</h2><p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white">Antes de pagar, Mary revisará vuestro contexto y os dirá si puede ayudaros y cómo lo abordaría.</p><Button href={WHATSAPP_URL} disabled={!WHATSAPP_URL} external={Boolean(WHATSAPP_URL)} variant="white" size="lg" class="mt-8" arrow>Escribir por WhatsApp</Button></div>
+  <section class="cta-pattern py-16 sm:py-20">
+    <div class="page-container">
+      <div class="rounded-[2rem] border border-brand-line bg-white px-6 py-10 text-center shadow-ambient sm:px-12 sm:py-14">
+        <h2 class="mx-auto max-w-3xl text-4xl sm:text-5xl">Cuéntame qué estáis viviendo</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-brand-quiet">Antes de pagar, Mary revisará vuestro contexto y os dirá si puede ayudaros y cómo lo abordaría.</p>
+        <Button href={WHATSAPP_URL} disabled={!WHATSAPP_URL} external={Boolean(WHATSAPP_URL)} variant="pink" size="lg" class="mt-8" arrow>Escribir por WhatsApp</Button>
+      </div>
+    </div>
   </section>
 </BaseLayout>

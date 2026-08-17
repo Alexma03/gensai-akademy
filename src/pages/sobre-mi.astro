@@ -4,6 +4,27 @@ import Badge from '../components/atoms/Badge.astro';
 import Button from '../components/atoms/Button.astro';
 import Icon from '../components/atoms/Icon.astro';
 import PageHero from '../components/molecules/PageHero.astro';
+
+const pillars = [
+  {
+    slug: 'geniotipo',
+    title: 'Geniotipo',
+    credential: 'Máster en Geniotipo y Certificación en Psicogenium',
+    text: 'Especializándome en el diagnóstico avanzado del talento, la arquitectura de la personalidad y las claves de esta potente herramienta de autoconocimiento.',
+  },
+  {
+    slug: 'inteligencia-emocional',
+    title: 'Inteligencia Emocional',
+    credential: 'Experto Universitario en Inteligencia Emocional',
+    text: 'Para sanar mi propia sensibilidad y dominar herramientas de autorregulación emocional.',
+  },
+  {
+    slug: 'altas-capacidades',
+    title: 'Altas Capacidades',
+    credential: 'Máster en Altas Capacidades y Desarrollo del Talento',
+    text: 'Profundizando en la neurodiversidad, sobreexcitabilidades y necesidades socioemocionales en perfiles de AACC.',
+  },
+];
 ---
 
 <BaseLayout
@@ -11,8 +32,8 @@ import PageHero from '../components/molecules/PageHero.astro';
   description="Conoce la historia, formación y enfoque de Mary Garzón, coach especializada en Geniotipo, altas capacidades y educación emocional."
   canonicalPath="/sobre-mi"
 >
-  <PageHero badge="Conoce mi historia" tone="pink" description="Soy coach especializada en talento, altas capacidades y educación emocional. Pero antes de acompañar a otras personas, necesité comprenderme a mí misma.">
-    Hola, soy Mary Garzón
+  <PageHero badge="Conoce mi historia" tone="pink" description="Soy Mary Garzón, coach especializada en talento, altas capacidades y educación emocional. Esta es la historia de cómo encontré mi sitio para enseñar y acompañar.">
+    Del mapa de la razón a la <em class="font-normal italic text-brand-pink-accessible">libertad</em> de enseñar
   </PageHero>
 
   <section class="bg-white py-20 sm:py-24">
@@ -24,8 +45,8 @@ import PageHero from '../components/molecules/PageHero.astro';
         <Badge tone="green">Quién soy hoy</Badge>
         <h2 class="mt-4 text-3xl leading-tight sm:text-4xl">Pongo mis capacidades creativas al servicio de tu camino</h2>
         <div class="mt-5 space-y-4 text-sm leading-relaxed text-brand-quiet sm:text-[15px]">
-          <p>Hoy acompaño a adolescentes, familias y adultos a comprender mejor su talento, sus emociones y la dirección que quieren tomar.</p>
-          <p>Trabajo desde el coaching y la educación emocional, con preguntas, herramientas y conversaciones que convierten el autoconocimiento en decisiones prácticas.</p>
+          <p>Hoy acompaño a adolescentes, familias y adultos a comprender su talento, su intensidad y la dirección que quieren tomar.</p>
+          <p>Combino la estructura de más de veinte años en el mundo corporativo con una comprensión profunda en Inteligencia Emocional, Geniotipo y Altas Capacidades.</p>
           <p>No tengo respuestas cerradas para tu vida. Mi función es ayudarte a reconocer las tuyas con más claridad.</p>
         </div>
       </div>
@@ -33,33 +54,87 @@ import PageHero from '../components/molecules/PageHero.astro';
   </section>
 
   <section class="border-y border-brand-line bg-brand-mist py-20 sm:py-24">
-    <div class="page-container max-w-4xl">
-      <Badge tone="pink">Mi yo del pasado</Badge>
-      <h2 class="mt-4 text-3xl leading-tight sm:text-4xl">Durante mucho tiempo me sentí extraña, intensa y fuera de lugar</h2>
-      <div class="mt-6 space-y-4 text-sm leading-relaxed text-brand-quiet sm:text-[15px]">
-        <p>Me licencié en Filología Inglesa y oposité sin demasiado convencimiento de que ser profesora fuera a darme la libertad para enseñar que encontraba en las clases particulares.</p>
-        <p>Pasé más de veinte años trabajando en el sector del automóvil. Conocí personas y lugares, viajé y aprendí cuanto pude para saciar mi curiosidad. Después tuve a mis hijas y descubrí el amor incondicional, junto con el reto de acompañar una intensidad que a veces desbordaba la mía.</p>
-        <p>Cuando me despidieron, caí en un abismo. Pedí ayuda y no la encontré: lo que me proponían no era lo que necesitaba.</p>
+    <div class="page-container grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+      <div>
+        <Badge tone="pink">Mi yo del pasado</Badge>
+        <h2 class="mt-4 text-3xl leading-tight sm:text-4xl">Durante mucho tiempo me sentí extraña, intensa y fuera de lugar</h2>
+        <div class="mt-6 space-y-4 text-sm leading-relaxed text-brand-quiet sm:text-[15px]">
+          <p>Me licencié en Filología Inglesa y oposité sin demasiado convencimiento de que ser profesora tradicional fuera a darme la libertad para enseñar que sí encontraba en las clases particulares.</p>
+          <p>Buscando mi sitio, pasé más de veinte años trabajando en el sector del automóvil. Conocí a muchas personas, viajé por diferentes lugares y aprendí cuanto pude para saciar mi inagotable curiosidad. Después tuve a mis hijas y descubrí el amor incondicional, junto con el gran reto de acompañar una intensidad que, a veces, desbordaba la mía propia.</p>
+          <p>En septiembre de 2024, tras más de dos décadas en la industria corporativa, sufrí un despido inesperado. En ese instante caí en un abismo. Pedí ayuda profesional y no la encontré: lo que me proponían simplemente no era lo que yo necesitaba. Entendí con claridad que mi ciclo en la empresa privada había terminado y que no quería volver a él.</p>
+        </div>
       </div>
+      <img
+        src="/images/gallery/bosque-de-bambu.webp"
+        alt="Sendero iluminado entre un bosque de bambú"
+        width="1536"
+        height="1024"
+        loading="lazy"
+        decoding="async"
+        class="aspect-[4/3] w-full rounded-2xl object-cover shadow-ambient"
+      />
     </div>
   </section>
 
   <section class="bg-white py-20 sm:py-24">
     <div class="page-container max-w-4xl">
       <Badge tone="green">Mi yo del presente</Badge>
-      <h2 class="mt-4 text-3xl leading-tight sm:text-4xl">Entonces se abrió un ventanal</h2>
+      <h2 class="mt-4 text-3xl leading-tight sm:text-4xl">Se abre un ventanal</h2>
       <div class="mt-6 space-y-4 text-sm leading-relaxed text-brand-quiet sm:text-[15px]">
-        <p>Decidí estudiar y formarme para entenderme y entender. En ese momento de dudas profundas, Tony Estruch y la herramienta del Geniotipo creada por él se cruzaron en mi camino.</p>
-        <p>Poco después fui evaluada en altas capacidades. Empecé a comprenderme, a quererme y a agradecer mi capacidad intelectual, especialmente las capacidades creativas innatas que aparecieron en mi Mapa del Geniotipo.</p>
-        <p>Ese mapa no decidió por mí, pero iluminó el sendero. Mi vida empezó a cobrar un nuevo sentido y nació el deseo de acompañar a otras personas desde todo lo aprendido.</p>
+        <p>Fue en ese momento de dudas profundas cuando decidí estudiar y formarme para entenderme a mí misma y poder entender a los demás. La herramienta del Geniotipo creada por Tony Estruch se cruzó en mi camino.</p>
+        <p>Decidí realizar la evaluación y, al recibir mi Mapa del Geniotipo, las piezas del puzle comenzaron a encajar. Poco después fui evaluada clínicamente y confirmada en Altas Capacidades (AACC) e identificada con Alta Sensibilidad (PAS).</p>
+        <p>Ese mapa no decidió por mí, pero iluminó el sendero. Empecé a comprenderme, a quererme y a agradecer mi capacidad intelectual, especialmente las habilidades creativas innatas que se revelaron en mi mapa. Mi vida empezó a cobrar un nuevo sentido y nació en mí el deseo firme de acompañar a otras personas a través de un método propio.</p>
+      </div>
+    </div>
+
+    <div class="page-container mt-16">
+      <p class="mx-auto max-w-3xl text-center text-sm leading-relaxed text-brand-quiet sm:text-[15px]">Para ofrecer un acompañamiento riguroso y profesional, consolidé mi experiencia con una sólida preparación académica de posgrado.</p>
+      <ul class="mx-auto mt-10 grid max-w-5xl gap-12 sm:grid-cols-3 sm:gap-8 lg:gap-12">
+        {pillars.map((pillar) => (
+          <li class="text-center">
+            <picture>
+              <source srcset={`/icons/${pillar.slug}.webp`} type="image/webp" />
+              <img
+                src={`/icons/${pillar.slug}.png`}
+                alt=""
+                width="512"
+                height="512"
+                loading="lazy"
+                class="mx-auto size-28 object-contain sm:size-32"
+              />
+            </picture>
+            <h3 class="mt-5 text-2xl">{pillar.title}</h3>
+            <p class="mt-2 text-xs font-semibold leading-relaxed text-brand-green-accessible">{pillar.credential}</p>
+            <p class="mt-3 text-sm leading-relaxed text-brand-quiet">{pillar.text}</p>
+          </li>
+        ))}
+      </ul>
+      <div class="mt-10 text-center">
+        <Button href="#formacion" variant="ghost" arrow>Ver credenciales verificables</Button>
       </div>
     </div>
   </section>
 
   <section class="border-y border-brand-line bg-brand-mist py-20 sm:py-24">
-    <div class="page-container grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-      <div><Badge tone="pink">Mi yo del futuro</Badge><h2 class="mt-4 text-3xl leading-tight sm:text-4xl">Agradecimiento y libertad para acompañar</h2></div>
-      <div class="space-y-4 text-sm leading-relaxed text-brand-quiet sm:text-[15px]"><p>Miro hacia el futuro con agradecimiento por lo vivido, por los lugares recorridos, las personas conocidas, el conocimiento adquirido y la libertad sentida.</p><p>Y especialmente agradezco poder usar mis capacidades creativas innatas para acompañarte en el sendero que tú has de transitar.</p></div>
+    <div class="page-container grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+      <div>
+        <Badge tone="pink">Mi yo del futuro</Badge>
+        <h2 class="mt-4 text-3xl leading-tight sm:text-4xl">Agradecimiento y libertad para acompañar</h2>
+        <div class="mt-6 space-y-4 text-sm leading-relaxed text-brand-quiet sm:text-[15px]">
+          <p>Miro hacia el futuro con un profundo agradecimiento por todo lo vivido: por los lugares recorridos, las personas conocidas, el conocimiento adquirido y la libertad reconquistada.</p>
+          <p>Hoy combino la estructura y disciplina de mi trayectoria corporativa con una comprensión profunda en Inteligencia Emocional, Geniotipo y Altas Capacidades.</p>
+          <p>Y, especialmente, agradezco poder usar mis capacidades creativas innatas para acompañarte a ti en el sendero que te toca transitar, ayudándote a descubrir tu propio mapa, comprender tu intensidad y convertir tu talento único en tu mayor fortaleza.</p>
+        </div>
+      </div>
+      <img
+        src="/images/gallery/jardin-zen-flor-cascada.webp"
+        alt="Jardín zen con flor y cascada"
+        width="1123"
+        height="1401"
+        loading="lazy"
+        decoding="async"
+        class="aspect-[4/3] w-full rounded-2xl object-cover shadow-ambient"
+      />
     </div>
   </section>
 
@@ -79,7 +154,7 @@ import PageHero from '../components/molecules/PageHero.astro';
     </div>
   </section>
 
-  <section class="border-y border-brand-line bg-brand-mist py-20 sm:py-24">
+  <section id="formacion" class="border-y border-brand-line bg-brand-mist py-20 sm:py-24">
     <div class="page-container max-w-4xl">
       <Badge tone="green" icon="award">Formación</Badge>
       <h2 class="mt-4 text-3xl leading-tight sm:text-4xl">Credenciales</h2>
@@ -120,7 +195,7 @@ import PageHero from '../components/molecules/PageHero.astro';
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Comprobar la credencial Tribu Geniotipo en Acredita (abre en una pestaña nueva)"
-            class="group mt-4 flex w-full items-center gap-4 rounded-2xl bg-white p-4 shadow-soft transition-transform duration-200 ease-out hover:-translate-y-0.5 focus-visible:-translate-y-0.5 sm:gap-5 sm:p-5"
+            class="group mt-4 flex w-full items-center gap-4 rounded-2xl bg-white px-4 py-2 shadow-soft transition-transform duration-200 ease-out hover:-translate-y-0.5 focus-visible:-translate-y-0.5 sm:gap-5 sm:px-5 sm:py-2"
           >
             <span class="grid w-28 shrink-0 place-items-center sm:w-36">
               <img
@@ -172,13 +247,46 @@ import PageHero from '../components/molecules/PageHero.astro';
   </section>
 
   <section class="bg-white py-20 sm:py-24">
-    <div class="page-container grid gap-12 lg:grid-cols-2 lg:gap-16">
-      <div><h2 class="text-3xl sm:text-4xl">Cómo acompaño</h2><p class="mt-5 text-sm leading-relaxed text-brand-quiet">Escucho el contexto, concretamos un objetivo y utilizamos herramientas de coaching, talento y educación emocional para avanzar con pasos realistas. Cuando trabajan menores, sus tutores contratan, autorizan y participan según el momento del proceso.</p></div>
-      <div class="bg-brand-mist p-7 sm:p-9"><h3 class="text-2xl">Qué no hago</h3><p class="mt-4 text-sm leading-relaxed text-brand-quiet">No realizo evaluación, diagnóstico, psicoterapia ni tratamiento. Los acompañamientos AACC requieren identificación oficial previa y se interrumpen cuando aparece una necesidad clínica que corresponde a un profesional sanitario cualificado.</p></div>
+    <div class="page-container">
+      <div class="mx-auto max-w-2xl text-center">
+        <Badge tone="green">Marco de trabajo</Badge>
+        <h2 class="mt-4 text-3xl leading-tight tracking-[-0.015em] sm:text-4xl">Acompañamiento honesto, con límites claros</h2>
+        <p class="mt-4 text-sm leading-relaxed text-brand-quiet sm:text-[15px]">Para que sepas qué esperar del proceso y cuándo corresponde derivar a otro profesional.</p>
+      </div>
+      <div class="mx-auto mt-10 grid max-w-5xl gap-6 lg:grid-cols-2 lg:items-stretch">
+        <div class="flex flex-col rounded-2xl border border-brand-line bg-white p-7 shadow-soft sm:p-8">
+          <div class="flex items-center gap-3">
+            <span class="grid size-9 place-items-center rounded-full bg-brand-mist text-brand-green-accessible"><Icon name="heart" size={16} /></span>
+            <h3 class="text-xl">Cómo acompaño</h3>
+          </div>
+          <ul class="mt-5 space-y-3">
+            <li class="flex items-start gap-3"><Icon name="check-circle" size={16} class="mt-0.5 shrink-0 text-brand-green-accessible" /><span class="text-sm leading-relaxed text-brand-quiet">Escucho el contexto y concretamos un objetivo alcanzable.</span></li>
+            <li class="flex items-start gap-3"><Icon name="check-circle" size={16} class="mt-0.5 shrink-0 text-brand-green-accessible" /><span class="text-sm leading-relaxed text-brand-quiet">Utilizamos herramientas de coaching, talento y educación emocional.</span></li>
+            <li class="flex items-start gap-3"><Icon name="check-circle" size={16} class="mt-0.5 shrink-0 text-brand-green-accessible" /><span class="text-sm leading-relaxed text-brand-quiet">Avanzamos con pasos realistas y sostenibles.</span></li>
+          </ul>
+        </div>
+        <div class="flex flex-col rounded-2xl border border-brand-line bg-brand-mist p-7 sm:p-8">
+          <div class="flex items-center gap-3">
+            <span class="grid size-9 place-items-center rounded-full border border-brand-line bg-white text-brand-quiet"><Icon name="badge" size={16} /></span>
+            <h3 class="text-xl">Qué no hago</h3>
+          </div>
+          <ul class="mt-5 space-y-3">
+            <li class="flex items-start gap-3"><span class="mt-2 size-1.5 shrink-0 rounded-full bg-brand-quiet/60"></span><span class="text-sm leading-relaxed text-brand-quiet">No realizo evaluación, diagnóstico, psicoterapia ni tratamiento.</span></li>
+            <li class="flex items-start gap-3"><span class="mt-2 size-1.5 shrink-0 rounded-full bg-brand-quiet/60"></span><span class="text-sm leading-relaxed text-brand-quiet">Los acompañamientos AACC requieren identificación oficial previa.</span></li>
+            <li class="flex items-start gap-3"><span class="mt-2 size-1.5 shrink-0 rounded-full bg-brand-quiet/60"></span><span class="text-sm leading-relaxed text-brand-quiet">Se interrumpen si aparece una necesidad clínica que corresponde a un profesional sanitario cualificado.</span></li>
+          </ul>
+        </div>
+      </div>
+      <p class="mx-auto mt-5 max-w-5xl text-[11px] leading-relaxed text-brand-quiet">* Cuando trabajan menores, sus tutores contratan, autorizan y participan según el momento del proceso.</p>
     </div>
   </section>
 
-  <section class="cta-pattern py-20 text-white sm:py-24">
-    <div class="page-container text-center"><h2 class="mx-auto max-w-3xl text-4xl text-white sm:text-5xl">Elige el recorrido que mejor encaja contigo</h2><div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row"><Button href="/geniotipo" variant="white">Geniotipo</Button><Button href="/altas-capacidades-familias" variant="outline-white">AACC familias</Button><Button href="/altas-capacidades-adultos" variant="outline-white">AACC adultos</Button></div></div>
+  <section class="cta-pattern py-16 sm:py-20">
+    <div class="page-container">
+      <div class="rounded-[2rem] border border-brand-line bg-white px-6 py-10 text-center shadow-ambient sm:px-12 sm:py-14">
+        <h2 class="mx-auto max-w-3xl text-4xl sm:text-5xl">Elige el recorrido que mejor encaja contigo</h2>
+        <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row"><Button href="/geniotipo" variant="green">Geniotipo</Button><Button href="/altas-capacidades-familias" variant="outline-green">AACC adolescentes</Button><Button href="/altas-capacidades-adultos" variant="outline-green">AACC adultos</Button></div>
+      </div>
+    </div>
   </section>
 </BaseLayout>

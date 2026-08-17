@@ -46,7 +46,7 @@ _Avoid_: duplicado de la portada, currículum sin contexto, página sobre Gensai
 Página pilar sobre qué es el Geniotipo, el test y el Mapa del Geniotipo, desde la que se accede a dos recorridos de captación: adolescentes mayores de 14 años y adultos.
 _Avoid_: embudo para empresas, Geniotipo corporativo
 
-**Embudo AACC familias**:
+**Embudo AACC adolescentes**:
 Recorrido de captación para familias que necesitan orientación educativa y emocional práctica para acompañar a un menor con altas capacidades.
 _Avoid_: evaluación de altas capacidades, terapia infantil
 
@@ -111,7 +111,7 @@ Entrada gratuita al embudo mediante el enlace identificado de Mary en la platafo
 _Avoid_: mapa incluido en el test, informe completo gratuito, programa obligatorio de varias sesiones, orientación vocacional completa
 
 **Educación emocional**:
-Enfoque transversal integrado en los recorridos AACC para familias y adultos, orientado a identificar, comprender y expresar emociones dentro del acompañamiento; no constituye una tercera oferta comercial independiente en el lanzamiento.
+Enfoque transversal integrado en los recorridos AACC para adolescentes y adultos, orientado a identificar, comprender y expresar emociones dentro del acompañamiento; no constituye una tercera oferta comercial independiente en el lanzamiento.
 _Avoid_: landing genérica de inteligencia emocional, terapia emocional, tratamiento emocional
 
 **Adolescente Geniotipo**:
@@ -122,7 +122,7 @@ _Avoid_: menor cliente, paciente adolescente
 Participante desde Educación Primaria con identificación oficial previa, cuyo acompañamiento comienza junto a sus tutores y explora su experiencia educativa y emocional.
 _Avoid_: paciente infantil, evaluación del menor, detección de problemas, diagnóstico AACC
 
-**Sesión inicial AACC para familias**:
+**Sesión inicial AACC para adolescentes**:
 Primera sesión online de 60 minutos con el menor y sus tutores para comprender cómo vive sus altas capacidades, escuchar la perspectiva familiar e identificar emociones y situaciones educativas o cotidianas que le generan mayor dificultad; puede abrir un acompañamiento posterior individual con el menor.
 _Avoid_: evaluación psicológica, detección de problemas, diagnóstico, paquete obligatorio
 

@@ -38,17 +38,27 @@ const faqItems = [
   </PageHero>
 
   <section class="bg-white py-20 sm:py-24">
-    <div class="page-container grid items-start gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-      <h2 class="text-3xl leading-tight tracking-[-0.015em] sm:text-4xl">Quizá no te falta talento, sino un hilo que lo ordene</h2>
-      <div class="space-y-4 text-sm leading-relaxed text-brand-quiet sm:text-[15px]">
-        <p>Puede que hayas cambiado varias veces de dirección, que te interesen demasiadas cosas o que no sepas cómo conectar lo que haces bien con tus próximos pasos.</p>
-        <p>Con el enlace de Mary, el test gratuito indica cuál es tu geniotipo matriz: un primer nombre para tus Capacidades Creativas Innatas. El mapa y la explicación de cómo interactúan los distintos geniotipos se reciben al contratar la sesión.</p>
-        <p class="font-semibold text-brand-ink">Es una herramienta de autoconocimiento, no una etiqueta ni una fórmula que descubre un único propósito.</p>
-        <div class="flex flex-col gap-3 pt-3 sm:flex-row">
+    <div class="page-container grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+      <div>
+        <h2 class="text-3xl leading-tight tracking-[-0.015em] sm:text-4xl">Quizá no te falta talento, sino un hilo que lo ordene</h2>
+        <div class="mt-6 space-y-4 text-sm leading-relaxed text-brand-quiet sm:text-[15px]">
+          <p>Puede que hayas cambiado varias veces de dirección, que te interesen demasiadas cosas o que no sepas cómo conectar lo que haces bien con tus próximos pasos.</p>
+          <p>Con el enlace de Mary, el test gratuito indica cuál es tu geniotipo matriz: un primer nombre para tus Capacidades Creativas Innatas. El mapa y la explicación de cómo interactúan los distintos geniotipos se reciben al contratar la sesión.</p>
+        </div>
+        <p class="mt-6 rounded-xl border-l-2 border-brand-green-accessible bg-brand-mist px-5 py-4 text-sm font-semibold leading-relaxed text-brand-ink">Es una herramienta de autoconocimiento, no una etiqueta ni una fórmula que descubre un único propósito.</p>
+        <div class="mt-6 flex flex-wrap gap-3">
           <Button href={GENIOTIPO_TEST_URL} external variant="green" size="lg" arrow>Haz el test gratuito</Button>
           <Button href="#sesion" variant="outline-green" size="lg">Ya conozco mi geniotipo matriz</Button>
         </div>
       </div>
+      <img
+        src="/images/gallery/geniotipo-adultos-hilo-ordenado.png"
+        alt="Un hilo coral que pasa de un enredo a una madeja ordenada"
+        width="1672"
+        height="941"
+        decoding="async"
+        class="aspect-[16/9] w-full rounded-2xl border border-brand-line object-cover"
+      />
     </div>
   </section>
 
@@ -65,7 +75,15 @@ const faqItems = [
 
   <section class="bg-white py-20 sm:py-24">
     <div class="page-container grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
-      <div class="lotus-image min-h-[380px] overflow-hidden rounded-2xl border border-brand-line sm:min-h-[440px]" role="img" aria-label="Flor de loto sobre un estanque, símbolo visual de Gensai Akademy"></div>
+      <img
+        src="/images/gallery/mapa-geniotipo.png"
+        alt="Mapa del Geniotipo, con los distintos geniotipos y cómo se relacionan entre sí"
+        width="1200"
+        height="900"
+        loading="lazy"
+        decoding="async"
+        class="h-full min-h-[380px] w-full rounded-2xl border border-brand-line object-cover sm:min-h-[440px]"
+      />
       <article>
         <h2 class="text-3xl tracking-[-0.015em] sm:text-4xl">Qué puede aportar el mapa en la etapa adulta</h2>
         <div class="mt-6 space-y-4 text-sm leading-relaxed text-brand-quiet sm:text-[15px]">
@@ -109,11 +127,13 @@ const faqItems = [
 
   <FAQ items={faqItems} heading="Preguntas frecuentes sobre el Geniotipo para adultos" />
 
-  <section class="cta-pattern py-20 text-white sm:py-24">
-    <div class="page-container text-center">
-      <h2 class="mx-auto max-w-3xl text-4xl text-white sm:text-5xl">Empieza por conocer tu geniotipo matriz</h2>
-      <p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white">El test gratuito indica tu geniotipo matriz. El mapa, su interpretación y cómo interactúan los geniotipos se reciben en la sesión.</p>
-      <Button href={GENIOTIPO_TEST_URL} external variant="white" size="lg" class="mt-8" arrow>Haz el test del Geniotipo</Button>
+  <section class="cta-pattern py-16 sm:py-20">
+    <div class="page-container">
+      <div class="rounded-[2rem] border border-brand-line bg-white px-6 py-10 text-center shadow-ambient sm:px-12 sm:py-14">
+        <h2 class="mx-auto max-w-3xl text-4xl sm:text-5xl">Empieza por conocer tu geniotipo matriz</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-brand-quiet">El test gratuito indica tu geniotipo matriz. El mapa, su interpretación y cómo interactúan los geniotipos se reciben en la sesión.</p>
+        <Button href={GENIOTIPO_TEST_URL} external variant="green" size="lg" class="mt-8" arrow>Haz el test del Geniotipo</Button>
+      </div>
     </div>
   </section>
 </BaseLayout>
