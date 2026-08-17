@@ -5,6 +5,9 @@ export default defineWorker({
   compatibilityDate: '2026-08-17',
   workersDev: true,
   entrypoint: './dist/server/entry.mjs',
+  assets: {
+    htmlHandling: 'drop-trailing-slash',
+  },
   env: {
     ASSETS: bindings.assets(),
   },
