@@ -1,12 +1,12 @@
 ---
-title: "Qué es el Mapa del Geniotipo y cómo puede ayudar a un adolescente"
-description: "Qué muestra el Mapa del Geniotipo, cómo se obtiene mediante el test oficial gratuito y cuáles son sus límites al orientar a un adolescente."
+title: "Cómo puede ayudar el Geniotipo a un adolescente que no sabe qué estudiar"
+description: "Cómo usar el Geniotipo para que un adolescente reconozca capacidades y explore estudios sin convertir el resultado en una respuesta cerrada."
 category: geniotipo
 pubDate: 2026-08-15
 minutes: 5
 ---
 
-Cuando un adolescente no sabe qué estudiar, es tentador buscar un test que entregue una respuesta inmediata: una carrera, un itinerario o una lista ordenada de profesiones. El Mapa del Geniotipo no funciona así, y ese límite es importante.
+Cuando un adolescente no sabe qué estudiar, es tentador buscar un test que entregue una respuesta inmediata: una carrera, un itinerario o una lista ordenada de profesiones. El Geniotipo no funciona así, y ese límite es importante.
 
 Su utilidad no está en decidir por el adolescente, sino en ofrecerle un lenguaje para reconocer capacidades que quizá todavía no sabe explicar.
 
@@ -14,16 +14,15 @@ Su utilidad no está en decidir por el adolescente, sino en ofrecerle un lenguaj
 
 El Geniotipo es una herramienta de autoconocimiento creada por **Tony Estruch**. Su propuesta gira alrededor de las llamadas **Capacidades Creativas Innatas**: formas naturales de pensar, crear, resolver y aportar.
 
-El cuestionario oficial genera un mapa que refleja cómo aparecen esas capacidades en la persona. Ese resultado puede abrir una conversación sobre fortalezas, intereses y entornos en los que el adolescente se siente más motivado.
+El cuestionario oficial identifica primero el **geniotipo matriz**. Ese resultado nombra el núcleo de las Capacidades Creativas Innatas, pero todavía no es el mapa ni explica cómo se relacionan los distintos geniotipos.
 
 ## Qué recibe el adolescente
 
-El proceso comienza con el test oficial gratuito. Al terminarlo, la plataforma envía por correo:
+El proceso comienza con el test oficial gratuito. Al terminarlo, el adolescente conoce únicamente su **geniotipo matriz**.
 
-- el Mapa del Geniotipo;
-- un informe asociado al resultado.
+**El test gratuito no entrega el Mapa del Geniotipo.** El mapa completo, su lectura y la explicación de cómo interactúan los distintos geniotipos se reciben al [contratar la sesión de interpretación](/geniotipo-adolescentes).
 
-Completar el test no obliga a contratar ningún servicio. La familia puede leer el material por su cuenta y decidir después si necesita ayuda para interpretarlo.
+Completar el test no obliga a contratar ningún servicio. La familia puede quedarse con el geniotipo matriz o dar el siguiente paso si quiere comprender el retrato completo.
 
 ## Qué puede aportar a una decisión académica
 
@@ -47,9 +46,9 @@ Por eso el mapa funciona mejor como **punto de partida para investigar**, no com
 
 ## Para qué sirve una sesión de interpretación
 
-Una familia puede recibir el resultado y seguir adelante sin acompañamiento. Si necesita comprender mejor el lenguaje del mapa, puede contratar una sesión opcional.
+Una familia puede conocer el geniotipo matriz y seguir adelante sin acompañamiento. Si quiere el mapa, comprender su significado y ver cómo interactúan los geniotipos, necesita contratar la sesión.
 
-En la [sesión de interpretación del Geniotipo](/geniotipo), Mary conversa con el adolescente y sus tutores durante 60 minutos. Explica las capacidades y fortalezas reflejadas, responde preguntas y ayuda a identificar qué aspectos conviene explorar después.
+En la [sesión de interpretación del Geniotipo](/geniotipo-adolescentes), Mary conversa con el adolescente y sus tutores durante 60 minutos. Entrega el mapa, explica las capacidades y fortalezas reflejadas, cómo se relacionan entre sí, responde preguntas y ayuda a identificar qué aspectos conviene explorar después.
 
 La sesión no propone carreras ni elige por el adolescente. Busca que él salga con palabras más precisas para hablar de lo que se le da bien y con pistas para continuar su propia investigación.
 

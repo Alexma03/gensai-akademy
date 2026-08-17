@@ -21,5 +21,10 @@ export default defineConfig({
   integrations: [react()],
   vite: {
     plugins: [tailwindcss()],
+    // passthrough image service is loaded via a virtual entry; without this,
+    // Vite rediscovers it at boot, re-hashes deps_ssr, and workerd crashes.
+    optimizeDeps: {
+      include: ['astro/assets/services/noop'],
+    },
   },
 });

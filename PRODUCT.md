@@ -6,11 +6,11 @@ brand
 
 ## Users
 
-Familias que quieren ayudar a un adolescente a reconocer su talento, familias con menores ya identificados con altas capacidades y adultos con identificación oficial que buscan claridad, propósito y herramientas emocionales. El servicio es online para público hispanohablante de España y Latinoamérica.
+Adolescentes y adultos que quieren reconocer su talento mediante el Geniotipo, familias con menores ya identificados con altas capacidades y adultos con identificación oficial que buscan claridad, propósito y herramientas emocionales. El servicio es online para público hispanohablante de España y Latinoamérica.
 
 ## Product Purpose
 
-La web presenta a Mary Garzón como profesional visible y a GensAI como la marca que respalda tres recorridos: Geniotipo para adolescentes, AACC para familias y AACC para adultos. Conserva el sistema visual "Estanque claro" y conduce al test gratuito o al contacto previo por WhatsApp según la oferta.
+La web presenta a Mary Garzón como profesional visible y a Gensai como la marca que respalda tres áreas: Geniotipo para adolescentes y adultos, AACC para familias y AACC para adultos. Conserva el sistema visual "Estanque claro" y conduce al test gratuito o al contacto previo por WhatsApp según la oferta.
 
 ## Brand Personality
 
@@ -28,7 +28,7 @@ Cercana, luminosa y experta. La voz transmite serenidad, optimismo y confianza s
 - **Identidad propia antes que réplica.** El rediseño 2026 (sistema "Estanque claro") sustituye a la fidelidad 1:1 con la web original.
 - **Calidez con credibilidad.** Equilibrar una presencia humana y amable con lenguaje y estructura profesionales.
 - **Guiar hacia el siguiente paso.** Cada página debe hacer evidente cómo conocer el servicio relacionado o contactar.
-- **Una identidad, tres recorridos.** Verde y rosa distinguen acción y emoción sin fragmentar la marca.
+- **Una identidad, recorridos claros.** Verde y rosa distinguen acción y emoción sin fragmentar la marca.
 - **Contenido primero, JavaScript mínimo.** Servir páginas rápidas y semánticas; hidratar únicamente las interacciones que lo necesitan.
 
 ## Accessibility & Inclusion

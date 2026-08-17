@@ -1,6 +1,6 @@
-# Mary Garzón · GensAI
+# Mary Garzón · Gensai Akademy
 
-Web de Mary Garzón y GensAI con Astro, React y Tailwind CSS. Conserva el sistema visual "Estanque claro" y organiza la oferta en tres recorridos online: Geniotipo para adolescentes, AACC para familias y AACC para adultos.
+Web de Mary Garzón y Gensai Akademy con Astro, React y Tailwind CSS. Conserva el sistema visual "Estanque claro" y organiza la oferta online de Geniotipo para adolescentes y adultos, AACC para familias y AACC para adultos.
 
 ## Stack
 
@@ -52,6 +52,8 @@ src/
 
 - `/`
 - `/geniotipo`
+- `/geniotipo-adolescentes`
+- `/geniotipo-adultos`
 - `/altas-capacidades-familias`
 - `/altas-capacidades-adultos`
 - `/sobre-mi`

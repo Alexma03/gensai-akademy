@@ -64,11 +64,11 @@ Ese lenguaje ofrece pistas sin reducir todas sus posibilidades a una sola identi
 
 ## Qué puede aportar el Mapa del Geniotipo
 
-El [Mapa del Geniotipo](/geniotipo) es una herramienta de autoconocimiento que describe Capacidades Creativas Innatas. Puede ayudar al adolescente y a su familia a poner nombre a fortalezas que todavía no sabían explicar.
+El [Mapa del Geniotipo](/geniotipo-adolescentes) es una herramienta de autoconocimiento que describe Capacidades Creativas Innatas. Puede ayudar al adolescente y a su familia a poner nombre a fortalezas que todavía no sabían explicar.
 
 No elige una carrera, no recomienda asignaturas y no sustituye un proceso completo de orientación académica. Su valor está en ofrecer un punto de partida para investigar con más criterio.
 
-El test oficial es gratuito. Después de recibir el mapa y el informe, la familia puede decidir si necesita una sesión de interpretación con Mary para comprender mejor sus conclusiones.
+El test oficial es gratuito y indica el geniotipo matriz. El mapa, la interpretación y cómo interactúan los distintos geniotipos se reciben en una sesión con Mary.
 
 ## Acompañar no es decidir
 

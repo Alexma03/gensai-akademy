@@ -65,26 +65,108 @@ import PageHero from '../components/molecules/PageHero.astro';
 
   <section class="bg-white py-20 sm:py-24">
     <div class="page-container grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-      <div><img src="/logo.jpeg" alt="Símbolo de GensAI" width="500" height="500" loading="lazy" class="mx-auto w-full max-w-sm object-contain" /></div>
+      <div><img src="/logo.jpeg" alt="Logotipo de Gensai Akademy" width="500" height="500" loading="lazy" class="mx-auto w-full max-w-sm object-contain" /></div>
       <div>
         <Badge tone="green">La marca que acompaña mi trabajo</Badge>
-        <h2 class="mt-4 text-3xl leading-tight sm:text-4xl">Qué significa GensAI</h2>
+        <h2 class="mt-4 text-3xl leading-tight sm:text-4xl">Cómo nació Gensai Akademy</h2>
         <div class="mt-5 space-y-4 text-sm leading-relaxed text-brand-quiet sm:text-[15px]">
-          <p><strong class="text-brand-ink">Gen</strong> representa el origen, la fuente o la raíz: la base de lo que somos y la idea que conecta con el Geniotipo.</p>
-          <p><strong class="text-brand-ink">Sai</strong> representa el talento o la capacidad y conecta con el desarrollo de las altas capacidades.</p>
-          <p>Juntos expresan la raíz o fuente del talento. GensAI no tiene relación con la inteligencia artificial: es la marca que reúne y respalda mis acompañamientos.</p>
+          <p>El nombre nació mientras buscaba una palabra breve capaz de reunir los tres campos que quería unir: altas capacidades, inteligencia emocional y Geniotipo.</p>
+          <p><strong class="text-brand-ink">Gen (<span lang="ja">源</span>)</strong> viene de Geniotipo y evoca el origen o la esencia. <strong class="text-brand-ink">Sai (<span lang="ja">才</span>)</strong> significa talento o capacidad en japonés.</p>
+          <p>Al poner <strong class="text-brand-ink">Gen</strong> delante de <strong class="text-brand-ink">sai</strong> nació <strong class="text-brand-ink">Gensai</strong>. Para mí, resume una idea: reconocer el talento que nace de tu esencia, comprenderlo y darle dirección.</p>
+          <p><strong class="text-brand-ink">Akademy</strong>, con K, completa el nombre con una identidad propia, actual e internacional. Expresa un espacio de aprendizaje y comunidad pensado para adolescentes, no una academia reglada.</p>
         </div>
       </div>
     </div>
   </section>
 
   <section class="border-y border-brand-line bg-brand-mist py-20 sm:py-24">
-    <div class="page-container grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16">
-      <div><Badge tone="green" icon="award">Formación</Badge><h2 class="mt-4 text-3xl leading-tight sm:text-4xl">Credenciales</h2><p class="mt-4 text-sm leading-relaxed text-brand-quiet">Los diplomas y enlaces de verificación se incorporarán cuando estén preparados para publicación.</p></div>
-      <ul class="divide-y divide-brand-line border-y border-brand-line">
-        <li class="py-5"><strong class="block text-sm text-brand-ink">Experta Universitaria en Inteligencia Emocional</strong><span class="mt-1 block text-sm text-brand-quiet">Especializada en Educación Emocional · UNIR, 2025</span></li>
-        <li class="py-5"><strong class="block text-sm text-brand-ink">Certificado en Metodología Geniotipo y Psicogenium</strong><span class="mt-1 block text-sm text-brand-quiet">Tony Estruch, fundador del Geniotipo · 2025</span></li>
-        <li class="py-5"><strong class="block text-sm text-brand-ink">Máster en Altas Capacidades y Desarrollo del Talento</strong><span class="mt-1 block text-sm text-brand-quiet">UNIR, 2026</span></li>
+    <div class="page-container max-w-4xl">
+      <Badge tone="green" icon="award">Formación</Badge>
+      <h2 class="mt-4 text-3xl leading-tight sm:text-4xl">Credenciales</h2>
+      <p class="mt-4 max-w-2xl text-sm leading-relaxed text-brand-quiet">Consulta las verificaciones oficiales disponibles de mi formación.</p>
+      <ul class="mt-10 divide-y divide-brand-line border-y border-brand-line">
+        <li class="py-6">
+          <strong class="block text-sm text-brand-ink">Programa Avanzado en Inteligencia Emocional con Especialización en Educación Emocional</strong>
+          <span class="mt-1 block text-sm text-brand-quiet">UNIR · 450 horas · 18 ECTS · 2025</span>
+          <a
+            href="https://verifirma.unir.net/CSV/6b961819-07d3-4d2a-9ed8-1b9c1a92e3b0"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Comprobar el título de Inteligencia Emocional en UNIR (abre en una pestaña nueva)"
+            class="group mt-4 flex w-full items-center gap-4 rounded-2xl bg-white p-4 shadow-soft transition-transform duration-200 ease-out hover:-translate-y-0.5 focus-visible:-translate-y-0.5 sm:gap-5 sm:p-5"
+          >
+            <span class="grid w-28 shrink-0 place-items-center sm:w-36">
+              <img
+                src="https://investigacion.unir.net/img/parent-logo-5b42a57fe303926cb53e50234f2385fe.svg"
+                alt="UNIR, Universidad Internacional de La Rioja"
+                width="177"
+                height="36"
+                loading="lazy"
+                class="w-full"
+              />
+            </span>
+            <span class="min-w-0">
+              <span class="flex items-center gap-1.5 text-xs font-semibold text-brand-green"><Icon name="check-circle" size={15} /> Título verificable en UNIR</span>
+              <span class="mt-1.5 block text-xs leading-relaxed text-brand-quiet">Expedido el 30 ene 2026</span>
+              <span class="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-brand-green group-hover:text-brand-green-deep">Comprobar título <Icon name="arrow-up-right" size={14} /></span>
+            </span>
+          </a>
+        </li>
+        <li class="py-6">
+          <strong class="block text-sm text-brand-ink">Certificado en Metodología Geniotipo y Psicogenium</strong>
+          <span class="mt-1 block text-sm text-brand-quiet">Tony Estruch, fundador del Geniotipo · 2025</span>
+          <a
+            href="https://www.acreditta.com/credential/543327b6-47e7-4dfc-9cd2-5775d3171a5c"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Comprobar la credencial Tribu Geniotipo en Acredita (abre en una pestaña nueva)"
+            class="group mt-4 flex w-full items-center gap-4 rounded-2xl bg-white p-4 shadow-soft transition-transform duration-200 ease-out hover:-translate-y-0.5 focus-visible:-translate-y-0.5 sm:gap-5 sm:p-5"
+          >
+            <span class="grid w-28 shrink-0 place-items-center sm:w-36">
+              <img
+                src="https://assets.acreditta.com/badge_templates/images/3470_badge_template_f8bf3817-a9da-4a65-a460-89c063237383/medium.png"
+                alt="Sello Tribu Geniotipo 2025"
+                width="256"
+                height="256"
+                loading="lazy"
+                class="size-20 object-contain sm:size-24"
+              />
+            </span>
+            <span class="min-w-0">
+              <span class="flex items-center gap-1.5 text-xs font-semibold text-brand-green"><Icon name="check-circle" size={15} /> Credencial digital verificable</span>
+              <strong class="mt-1.5 block text-sm text-brand-ink">Tribu Geniotipo</strong>
+              <span class="mt-1 block text-xs leading-relaxed text-brand-quiet">Emitida por Fundación Geniotipo · 17 dic 2025</span>
+              <span class="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-brand-green group-hover:text-brand-green-deep">Comprobar en Acredita <Icon name="arrow-up-right" size={14} /></span>
+            </span>
+          </a>
+        </li>
+        <li class="py-6">
+          <strong class="block text-sm text-brand-ink">Máster de Formación Permanente en Altas Capacidades y Desarrollo del Talento</strong>
+          <span class="mt-1 block text-sm text-brand-quiet">UNIR · 1500 horas · 60 ECTS · 2026</span>
+          <a
+            href="https://verifirma.unir.net/CSV/5b361698-7e7d-4d1a-92da-ba13920189de"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Comprobar el título de Altas Capacidades en UNIR (abre en una pestaña nueva)"
+            class="group mt-4 flex w-full items-center gap-4 rounded-2xl bg-white p-4 shadow-soft transition-transform duration-200 ease-out hover:-translate-y-0.5 focus-visible:-translate-y-0.5 sm:gap-5 sm:p-5"
+          >
+            <span class="grid w-28 shrink-0 place-items-center sm:w-36">
+              <img
+                src="https://investigacion.unir.net/img/parent-logo-5b42a57fe303926cb53e50234f2385fe.svg"
+                alt="UNIR, Universidad Internacional de La Rioja"
+                width="177"
+                height="36"
+                loading="lazy"
+                class="w-full"
+              />
+            </span>
+            <span class="min-w-0">
+              <span class="flex items-center gap-1.5 text-xs font-semibold text-brand-green"><Icon name="check-circle" size={15} /> Título verificable en UNIR</span>
+              <span class="mt-1.5 block text-xs leading-relaxed text-brand-quiet">Expedido el 7 ago 2026</span>
+              <span class="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-brand-green group-hover:text-brand-green-deep">Comprobar título <Icon name="arrow-up-right" size={14} /></span>
+            </span>
+          </a>
+        </li>
       </ul>
     </div>
   </section>

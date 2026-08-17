@@ -4,57 +4,78 @@ import Button from '../components/atoms/Button.astro';
 import Icon from '../components/atoms/Icon.astro';
 import PageHero from '../components/molecules/PageHero.astro';
 import FAQ from '../components/molecules/FAQ.astro';
-import { GENIOTIPO_BOOKING_URL, GENIOTIPO_TEST_URL } from '../config/links';
+import ServiceCard from '../components/molecules/ServiceCard.astro';
+import { GENIOTIPO_TEST_URL } from '../config/links';
+
+const GENIOTIPO_VALIDATION_URL = 'https://fundaciongeniotipo.org/validacion-test-geniotipo/';
 
 const steps = [
-  { title: 'Haz el test gratuito', text: 'El adolescente completa el cuestionario oficial desde el enlace identificado de Mary.' },
-  { title: 'Recibe el resultado', text: 'La plataforma envía por correo el Mapa del Geniotipo y su informe.' },
-  { title: 'Decide si queréis profundizar', text: 'Con el resultado en mano, podéis contratar una sesión conjunta de interpretación.' },
+  { title: 'Haz el test gratuito', text: 'Completa el cuestionario desde el enlace identificado de Mary.' },
+  { title: 'Conoce tu geniotipo matriz', text: 'El resultado gratuito indica tu geniotipo matriz. Todavía no incluye el mapa completo.' },
+  { title: 'Interpreta el mapa en sesión', text: 'El mapa, su lectura y cómo interactúan los geniotipos se reciben al contratar la sesión.' },
 ];
 
-const sessionIncludes = [
-  'Sesión online de 60 minutos con el adolescente y sus tutores',
-  'Explicación de las capacidades y fortalezas reflejadas en el mapa',
-  'Mapa del Geniotipo e informe recibido desde la plataforma oficial',
-  'Grabación de la sesión en Google Meet si la familia la solicita',
+const audiences = [
+  {
+    icon: 'users' as const,
+    title: 'Geniotipo para adolescentes',
+    description: 'Para mayores de 14 años que quieren reconocer sus capacidades y explorar opciones sin que nadie decida por ellos.',
+    bullets: ['Adolescente y tutores', 'Decisiones académicas sin respuestas cerradas', 'Sesión online de 60 minutos'],
+    href: '/geniotipo-adolescentes',
+    accent: 'pink' as const,
+  },
+  {
+    icon: 'lightbulb' as const,
+    title: 'Geniotipo para adultos',
+    description: 'Para ordenar intereses, reconocer patrones de talento y afrontar decisiones personales o profesionales con más claridad.',
+    bullets: ['Sesión individual', 'Lectura desde tu contexto actual', 'Sesión online de 60 minutos'],
+    href: '/geniotipo-adultos',
+    accent: 'green' as const,
+  },
+];
+
+const mapIncludes = [
+  'Tu Mapa del Geniotipo',
+  'La interpretación de tus Capacidades Creativas Innatas',
+  'La explicación de cómo interactúan los distintos geniotipos',
+  'Una conversación aplicada a tu momento actual',
 ];
 
 const faqItems = [
-  { q: '¿El test tiene algún coste?', a: 'No. El test oficial se realiza gratuitamente desde el enlace de Mary. La sesión posterior de interpretación es opcional y cuesta 100 €.' },
-  { q: '¿A partir de qué edad se puede realizar?', a: 'Este recorrido está dirigido a adolescentes a partir de 13 años, siempre con autorización y acompañamiento de sus tutores.' },
-  { q: '¿La sesión recomienda una carrera o asignaturas?', a: 'No. Mary explica las capacidades y fortalezas del adolescente para que después pueda investigar opciones con más criterio, sin elegir estudios por él ni prometer una respuesta definitiva.' },
-  { q: '¿Es una evaluación psicológica?', a: 'No. El Geniotipo se utiliza aquí como herramienta de autoconocimiento y exploración del talento. No diagnostica personalidad, altas capacidades ni ninguna condición clínica.' },
-  { q: '¿Tengo que contratar la sesión después del test?', a: 'No. El test y sus resultados son gratuitos. Solo contratáis la sesión si queréis comprender el mapa con más profundidad y conversar sobre sus conclusiones.' },
+  { q: '¿Qué es el Geniotipo?', a: 'Es una metodología creada por Tony Estruch para explorar las Capacidades Creativas Innatas y reconocer formas naturales de crear, aportar y desarrollar el talento.' },
+  { q: '¿Qué recibo gratis al hacer el test?', a: 'Con el enlace de Mary, el test gratuito indica cuál es tu geniotipo matriz. No incluye el Mapa del Geniotipo completo ni su interpretación.' },
+  { q: '¿Qué diferencia hay entre el geniotipo matriz y el mapa?', a: 'El geniotipo matriz es el resultado inicial del test. El mapa ofrece una visión más amplia y permite interpretar cómo se relacionan los distintos geniotipos entre sí.' },
+  { q: '¿El test del Geniotipo tiene validación psicométrica?', a: 'Sí. La Fundación Geniotipo publicó en 2023 una segunda validación independiente realizada sobre 13.727 participantes.' },
+  { q: '¿Para quién es este servicio?', a: 'Hay un recorrido para adolescentes mayores de 14 años y menores de 18, acompañados por sus tutores, y otro recorrido individual para adultos.' },
+  { q: '¿Cuánto cuesta la lectura del mapa?', a: 'La sesión online dura 60 minutos y cuesta 100 €. Incluye la entrega del mapa y su interpretación.' },
+  { q: '¿Es una evaluación psicológica o de altas capacidades?', a: 'No. El Geniotipo se utiliza aquí como herramienta de autoconocimiento y exploración del talento. No realiza diagnósticos ni sustituye una evaluación profesional.' },
 ];
 ---
 
 <BaseLayout
-  title="Orientación vocacional para adolescentes online | Mary Garzón"
-  description="Test gratuito del Geniotipo y sesión opcional para que adolescentes desde 13 años y sus familias comprendan capacidades, fortalezas y talento."
+  title="Geniotipo: qué es, test y Mapa del Geniotipo | Mary Garzón"
+  description="Descubre qué es el Geniotipo y su validación publicada. El test gratuito indica tu geniotipo matriz; el mapa se interpreta en sesión."
   canonicalPath="/geniotipo"
 >
-  <PageHero badge="Geniotipo para adolescentes" description="Cuando tu hijo no sabe qué estudiar, conocer sus capacidades puede darle un punto de partida sin decidir por él.">
-    Ayuda a tu hijo a descubrir su talento y explorar su camino
+  <PageHero badge="Geniotipo" description="Una herramienta de autoconocimiento para reconocer tus Capacidades Creativas Innatas y comprender cómo se relacionan entre sí.">
+    Qué es el Geniotipo y qué puedes descubrir con tu mapa
   </PageHero>
 
   <section class="bg-white py-20 sm:py-24">
     <div class="page-container grid items-start gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-      <h2 class="text-3xl leading-tight tracking-[-0.015em] sm:text-4xl">No necesita encontrar hoy la carrera perfecta</h2>
+      <h2 class="text-3xl leading-tight tracking-[-0.015em] sm:text-4xl">Un lenguaje para comprender tu talento</h2>
       <div class="space-y-4 text-sm leading-relaxed text-brand-quiet sm:text-[15px]">
-        <p>Puede que no sepa qué se le da bien, que le interesen demasiadas cosas o que ninguna opción termine de convencerle. La presión por elegir suele añadir ruido justo cuando necesita comprenderse.</p>
-        <p>El Mapa del Geniotipo ofrece un lenguaje para hablar de sus capacidades creativas innatas y reconocer fortalezas que quizá todavía no sabe nombrar.</p>
-        <p class="font-semibold text-brand-ink">Es un primer paso de autoconocimiento, no una máquina que decide estudios ni una orientación vocacional completa.</p>
-        <div class="flex flex-col gap-3 pt-3 sm:flex-row">
-          <Button href={GENIOTIPO_TEST_URL} external variant="green" size="lg" arrow>Haz el test gratuito</Button>
-          <Button href="#sesion" variant="outline-green" size="lg">Ya tenemos el resultado</Button>
-        </div>
+        <p>El Geniotipo es una metodología creada por Tony Estruch para explorar las Capacidades Creativas Innatas: formas de pensar, crear y aportar que aparecen con más naturalidad en cada persona.</p>
+        <p>Con el enlace de Mary, el test gratuito te indica cuál es tu geniotipo matriz. Ese resultado es el punto de partida. El Mapa del Geniotipo, su lectura y la explicación de cómo interactúan los distintos geniotipos se reciben al contratar una sesión.</p>
+        <p class="font-semibold text-brand-ink">El Geniotipo no define toda tu identidad ni determina qué debes hacer. Sirve para abrir preguntas más útiles sobre tu talento.</p>
+        <Button href={GENIOTIPO_TEST_URL} external variant="green" size="lg" arrow>Haz el test gratuito</Button>
       </div>
     </div>
   </section>
 
   <section class="border-y border-brand-line bg-brand-mist py-20 sm:py-24" aria-labelledby="pasos-geniotipo">
     <div class="page-container">
-      <div class="mx-auto max-w-2xl text-center"><h2 id="pasos-geniotipo" class="text-3xl tracking-[-0.015em] sm:text-4xl">Cómo funciona</h2><p class="mt-4 text-sm leading-relaxed text-brand-quiet">Primero el test. Después decidís si necesitáis acompañamiento.</p></div>
+      <div class="mx-auto max-w-2xl text-center"><h2 id="pasos-geniotipo" class="text-3xl tracking-[-0.015em] sm:text-4xl">Del test al Mapa del Geniotipo</h2><p class="mt-4 text-sm leading-relaxed text-brand-quiet">Tres pasos distintos para que sepas qué recibes en cada momento.</p></div>
       <ol class="mx-auto mt-10 grid max-w-5xl gap-8 md:grid-cols-3 md:gap-10">
         {steps.map((step, index) => (
           <li class="border-t border-brand-green-accessible pt-6"><span class="font-serif text-4xl text-brand-green-accessible" aria-hidden="true">0{index + 1}</span><h3 class="mt-3 text-xl">{step.title}</h3><p class="mt-2 text-sm leading-relaxed text-brand-quiet">{step.text}</p></li>
@@ -63,47 +84,60 @@ const faqItems = [
     </div>
   </section>
 
-  <section class="bg-white py-20 sm:py-24">
-    <div class="page-container grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
-      <div class="lotus-image min-h-[380px] overflow-hidden rounded-2xl border border-brand-line sm:min-h-[440px]" role="img" aria-label="Flor de loto sobre un estanque, símbolo visual de GensAI"></div>
-      <article>
-        <h2 class="text-3xl tracking-[-0.015em] sm:text-4xl">Qué es el Mapa del Geniotipo</h2>
-        <div class="mt-6 space-y-4 text-sm leading-relaxed text-brand-quiet sm:text-[15px]">
-          <p>Es el resultado del cuestionario creado por Tony Estruch para describir las Capacidades Creativas Innatas de una persona.</p>
-          <p>El mapa no define toda la identidad del adolescente. Sirve para iniciar una conversación sobre qué actividades, formas de crear y maneras de aportar aparecen con más naturalidad.</p>
-          <p>Mary está formada en la metodología Geniotipo y Psicogenium y centra esta interpretación en adolescentes y familias.</p>
-        </div>
-      </article>
+  <section id="validacion" class="bg-white py-20 sm:py-24" aria-labelledby="validacion-geniotipo">
+    <div class="page-container grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+      <div>
+        <h2 id="validacion-geniotipo" class="text-3xl leading-tight tracking-[-0.015em] sm:text-4xl">Qué sabemos sobre la validación del test</h2>
+        <p class="mt-5 text-sm leading-relaxed text-brand-quiet sm:text-[15px]">Existe una validación psicométrica publicada que permite conocer el alcance y los límites evaluados del test.</p>
+      </div>
+      <div>
+        <article class="border-t border-brand-green-accessible pt-6">
+          <h3 class="text-2xl">Validación independiente publicada</h3>
+          <p class="mt-3 text-sm leading-relaxed text-brand-quiet">La Fundación Geniotipo publicó en 2023 una segunda validación del test realizada por un investigador independiente sobre 13.727 participantes. El estudio comunicó niveles de fiabilidad entre aceptables y excelentes para la mayoría de las escalas, además de señalar aspectos concretos que debían revisarse.</p>
+          <Button href={GENIOTIPO_VALIDATION_URL} external variant="ghost" class="mt-3 -ml-3" arrow>Consultar la validación</Button>
+        </article>
+      </div>
     </div>
   </section>
 
-  <section id="sesion" class="border-y border-brand-line bg-brand-mist py-20 sm:py-24">
+  <section class="bg-white py-20 sm:py-24" aria-labelledby="elige-recorrido">
+    <div class="page-container">
+      <div class="mx-auto max-w-2xl text-center"><h2 id="elige-recorrido" class="text-3xl tracking-[-0.015em] sm:text-4xl">Elige tu recorrido</h2><p class="mt-4 text-sm leading-relaxed text-brand-quiet">La base es la misma; la conversación cambia según la etapa vital y las preguntas que traes.</p></div>
+      <div class="mx-auto mt-10 grid max-w-4xl gap-5 md:grid-cols-2">
+        {audiences.map((audience) => <ServiceCard {...audience} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-brand-line bg-brand-mist py-20 sm:py-24">
     <div class="page-container grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
       <div>
-        <h2 class="text-3xl leading-tight tracking-[-0.015em] sm:text-4xl">Sesión de interpretación para adolescentes y familias</h2>
-        <p class="mt-5 max-w-2xl text-sm leading-relaxed text-brand-quiet sm:text-[15px]">Si ya habéis recibido el resultado, Mary os ayuda a entender qué refleja el mapa y cómo hablar de esas capacidades sin convertirlas en una etiqueta ni imponer una elección académica.</p>
+        <h2 class="text-3xl leading-tight tracking-[-0.015em] sm:text-4xl">Qué incluye la lectura del mapa</h2>
+        <p class="mt-5 max-w-2xl text-sm leading-relaxed text-brand-quiet sm:text-[15px]">La sesión convierte el resultado inicial en una conversación comprensible y conectada con la etapa que estás viviendo.</p>
         <ul class="mt-7 space-y-3.5">
-          {sessionIncludes.map((item) => <li class="flex items-start gap-3"><Icon name="check-circle" size={18} class="mt-0.5 shrink-0 text-brand-green-accessible" /><span class="text-sm leading-relaxed text-brand-quiet">{item}</span></li>)}
+          {mapIncludes.map((item) => <li class="flex items-start gap-3"><Icon name="check-circle" size={18} class="mt-0.5 shrink-0 text-brand-green-accessible" /><span class="text-sm leading-relaxed text-brand-quiet">{item}</span></li>)}
         </ul>
       </div>
       <aside class="bg-white p-7 shadow-ambient sm:p-9">
-        <h3 class="text-2xl">Interpretación del mapa</h3>
+        <h3 class="text-2xl">Mapa e interpretación</h3>
         <dl class="mt-6 divide-y divide-brand-line text-sm">
-          <div class="flex justify-between gap-4 py-3"><dt>Duración</dt><dd class="font-semibold text-brand-ink">60 minutos</dd></div>
-          <div class="flex justify-between gap-4 py-3"><dt>Participan</dt><dd class="text-right font-semibold text-brand-ink">Adolescente y tutores</dd></div>
+          <div class="flex justify-between gap-4 py-3"><dt>Test inicial</dt><dd class="font-semibold text-brand-ink">Gratuito</dd></div>
+          <div class="flex justify-between gap-4 py-3"><dt>Sesión</dt><dd class="font-semibold text-brand-ink">60 minutos</dd></div>
           <div class="flex justify-between gap-4 py-3"><dt>Formato</dt><dd class="font-semibold text-brand-ink">Google Meet</dd></div>
           <div class="flex justify-between gap-4 py-3"><dt>Precio</dt><dd class="font-semibold text-brand-ink">100 €</dd></div>
         </dl>
-        <Button href={GENIOTIPO_BOOKING_URL} disabled={!GENIOTIPO_BOOKING_URL} external={Boolean(GENIOTIPO_BOOKING_URL)} variant="green" class="mt-7 w-full" arrow>Reservar la sesión</Button>
-        {!GENIOTIPO_BOOKING_URL && <p class="mt-3 text-xs leading-relaxed text-brand-quiet">El enlace de pago y reserva se incorporará antes de publicar.</p>}
+        <div class="mt-7 grid gap-3">
+          <Button href="/geniotipo-adolescentes" variant="pink" class="w-full" arrow>Recorrido para adolescentes</Button>
+          <Button href="/geniotipo-adultos" variant="outline-green" class="w-full" arrow>Recorrido para adultos</Button>
+        </div>
       </aside>
     </div>
   </section>
 
   <section class="bg-white py-20 sm:py-24">
     <div class="page-container grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
-      <div><h2 class="text-3xl sm:text-4xl">El papel de Mary</h2><p class="mt-4 text-sm leading-relaxed text-brand-quiet">Mary explica el mapa, da espacio a la mirada del adolescente y ayuda a la familia a escuchar sus capacidades sin decidir por él.</p><Button href="/sobre-mi" variant="ghost" class="mt-4 -ml-3" arrow>Conoce a Mary</Button></div>
-      <div class="bg-brand-mist p-7 sm:p-9"><h3 class="text-2xl">Un límite importante</h3><p class="mt-4 text-sm leading-relaxed text-brand-quiet">La sesión no recomienda asignaturas o carreras, no evalúa altas capacidades y no sustituye orientación académica, psicopedagógica o psicológica cuando sea necesaria.</p></div>
+      <div><h2 class="text-3xl sm:text-4xl">La interpretación de Mary</h2><p class="mt-4 text-sm leading-relaxed text-brand-quiet">Mary está formada en la metodología Geniotipo y Psicogenium. Explica el mapa y lo relaciona con las preguntas de cada persona o familia.</p><Button href="/sobre-mi" variant="ghost" class="mt-4 -ml-3" arrow>Conoce a Mary</Button></div>
+      <div class="bg-brand-mist p-7 sm:p-9"><h3 class="text-2xl">Un límite importante</h3><p class="mt-4 text-sm leading-relaxed text-brand-quiet">Esta lectura no diagnostica personalidad ni altas capacidades, no recomienda una carrera concreta y no sustituye atención psicológica, psicopedagógica o profesional cuando sea necesaria.</p></div>
     </div>
   </section>
 
@@ -111,8 +145,8 @@ const faqItems = [
 
   <section class="cta-pattern py-20 text-white sm:py-24">
     <div class="page-container text-center">
-      <h2 class="mx-auto max-w-3xl text-4xl text-white sm:text-5xl">Empieza por el test gratuito</h2>
-      <p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white">Cuando recibáis el mapa y el informe, podréis decidir con calma si necesitáis una sesión de interpretación.</p>
+      <h2 class="mx-auto max-w-3xl text-4xl text-white sm:text-5xl">Empieza por conocer tu geniotipo matriz</h2>
+      <p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white">El test es gratuito. Si después quieres recibir el mapa y comprenderlo, elige el recorrido que corresponda a tu etapa vital.</p>
       <Button href={GENIOTIPO_TEST_URL} external variant="white" size="lg" class="mt-8" arrow>Haz el test del Geniotipo</Button>
     </div>
   </section>

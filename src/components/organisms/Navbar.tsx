@@ -63,11 +63,11 @@ export default function Navbar({ currentPath }: NavbarProps) {
   return (
     <nav aria-label="Navegación principal" className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-300 ${scrolled || mobileOpen ? 'border-brand-line bg-[#fdfefb]/95 shadow-nav backdrop-blur-md' : 'border-transparent bg-transparent'}`}>
       <div className="mx-auto flex w-[min(100%-2rem,80rem)] items-center justify-between py-1.5">
-        <a href="/" aria-label="Mary Garzón y GensAI, inicio" className="inline-flex items-center gap-3">
+        <a href="/" aria-label="Mary Garzón y Gensai Akademy, inicio" className="inline-flex items-center gap-3">
           <img src="/logo.jpeg" alt="" width="500" height="500" className="size-9 object-contain sm:size-10" />
           <span className="hidden sm:block">
             <span className="block font-serif text-[15px] font-medium tracking-[-0.01em] text-brand-ink">Mary Garzón</span>
-            <span className="block text-[10px] font-semibold tracking-[0.08em] text-brand-green-accessible">GENSAI</span>
+            <span className="block text-[10px] font-semibold tracking-[0.08em] text-brand-green-accessible">GENSAI AKADEMY</span>
           </span>
         </a>
 

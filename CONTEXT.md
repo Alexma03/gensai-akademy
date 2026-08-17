@@ -1,4 +1,4 @@
-# Posicionamiento de Mary Garzón y GensAI
+# Posicionamiento de Mary Garzón y Gensai Akademy
 
 Este contexto fija el lenguaje del proyecto antes de decidir la estrategia SEO, la oferta y la estructura de las páginas.
 
@@ -8,9 +8,9 @@ Este contexto fija el lenguaje del proyecto antes de decidir la estrategia SEO, 
 Coach especializada en talento, altas capacidades y educación emocional; es la profesional visible que firma el contenido, genera confianza y presta el acompañamiento.
 _Avoid_: María José, la profesional
 
-**GensAI**:
-Marca que combina intencionalmente `Gen` —origen, fuente o raíz y base de lo que somos— con `Sai` —talento o capacidad— para expresar `talento original` o `la fuente del talento` y conectar Geniotipo con altas capacidades; agrupa y respalda los servicios de Mary Garzón sin sustituir su protagonismo personal.
-_Avoid_: inteligencia artificial, traducción literal de una palabra japonesa completa, GensAI Akademy como academia, Mary como marca separada
+**Gensai Akademy**:
+Marca cuyo nombre nació al unir `Gen` —de Geniotipo y asociado al origen o la esencia— con `sai` (`才`) —talento o capacidad en japonés—. `Gensai` resume `el talento que nace de tu esencia`; `Akademy`, con K, aporta una identidad actual e internacional y expresa un espacio de aprendizaje y comunidad pensado para adolescentes, familias y adultos. La marca agrupa y respalda los servicios de Mary Garzón sin sustituir su protagonismo personal.
+_Avoid_: inteligencia artificial, traducción literal de una palabra japonesa completa, academia reglada, centro educativo formal, Mary como marca separada
 
 **Ventanal**:
 Metáfora personal de Mary para el momento en que el Geniotipo y su identificación de altas capacidades le permitieron comprenderse, valorar sus capacidades y recuperar dirección; puede inspirar la narrativa de marca sin convertirse en promesa al cliente.
@@ -21,7 +21,7 @@ _Avoid_: abrir un ventanal garantizado, dar sentido a la vida como promesa comer
 _Avoid_: encontrar tu propósito garantizado, transformar tu vida, sanar
 
 **Talento, emoción y dirección**:
-Territorio común de GensAI que une autoconocimiento, educación emocional y decisiones prácticas en los tres recorridos.
+Territorio común de Gensai Akademy que une autoconocimiento, educación emocional y decisiones prácticas en los tres recorridos.
 _Avoid_: terapia emocional, descubrir tu propósito garantizado, academia
 
 **Coach**:
@@ -31,7 +31,7 @@ _Avoid_: psicóloga, coach certificada antes de obtener el título
 ## Recorridos
 
 **Página de marca**:
-Entrada general centrada en Mary Garzón, su enfoque y los recorridos que ofrece bajo GensAI.
+Entrada general centrada en Mary Garzón, su enfoque y los recorridos que ofrece bajo Gensai Akademy.
 _Avoid_: landing genérica, página de inicio corporativa
 
 **Blog**:
@@ -40,10 +40,10 @@ _Avoid_: Recursos, tres blogs separados, artículos creados solo para acumular k
 
 **Página sobre Mary Garzón**:
 Perfil ampliado de la autora y profesional que reúne su historia, credenciales verificables, enfoque y límites; complementa la presentación resumida de la página de marca.
-_Avoid_: duplicado de la portada, currículum sin contexto, página sobre GensAI separada
+_Avoid_: duplicado de la portada, currículum sin contexto, página sobre Gensai Akademy separada
 
 **Embudo Geniotipo**:
-Recorrido de captación y conversión para adolescentes y sus familias alrededor del talento, la orientación y el Mapa del Geniotipo.
+Página pilar sobre qué es el Geniotipo, el test y el Mapa del Geniotipo, desde la que se accede a dos recorridos de captación: adolescentes mayores de 14 años y adultos.
 _Avoid_: embudo para empresas, Geniotipo corporativo
 
 **Embudo AACC familias**:
@@ -60,6 +60,10 @@ _Avoid_: diagnóstico de altas capacidades, tratamiento emocional
 Familia que busca comprender el talento y orientar las decisiones académicas o vitales de un adolescente.
 _Avoid_: cliente de empresa, equipo
 
+**Adulto Geniotipo**:
+Persona adulta que quiere reconocer sus capacidades, ordenar intereses y explorar decisiones personales o profesionales mediante el Geniotipo.
+_Avoid_: paciente, diagnóstico, propósito garantizado
+
 **Adulto AACC**:
 Persona adulta con una identificación oficial previa de altas capacidades que busca comprender su forma de pensar, sentir o relacionarse y convertir ese conocimiento en decisiones prácticas.
 _Avoid_: persona en fase de sospecha, paciente, caso clínico
@@ -75,8 +79,12 @@ Proceso educativo o de coaching orientado a autoconocimiento, decisiones y herra
 _Avoid_: terapia, psicoterapia, tratamiento
 
 **Sesión de interpretación del Geniotipo para adolescentes**:
-Servicio online opcional de 60 minutos contratado después de obtener el resultado del test, en el que Mary explica al adolescente y a sus tutores las capacidades y fortalezas reflejadas en el mapa; puede grabarse a petición del cliente.
-_Avoid_: orientación incluida en el test, informe personalizado adicional, recomendación de asignaturas o carreras, elección garantizada
+Servicio online de 60 minutos contratado después de obtener el geniotipo matriz del test, en el que Mary entrega el Mapa del Geniotipo, explica su interpretación y cómo interactúan los distintos geniotipos; puede grabarse a petición del cliente.
+_Avoid_: mapa incluido en el test, interpretación gratuita, recomendación de asignaturas o carreras, elección garantizada
+
+**Sesión de interpretación del Geniotipo para adultos**:
+Servicio individual online de 60 minutos contratado después de obtener el geniotipo matriz del test, en el que Mary entrega el Mapa del Geniotipo y lo interpreta desde las preguntas personales o profesionales del adulto; puede grabarse a petición del cliente.
+_Avoid_: mapa incluido en el test, interpretación gratuita, diagnóstico, propósito o respuesta profesional garantizados
 
 **Contexto de orientación vocacional**:
 Necesidad y territorio de búsqueda desde el que una familia puede descubrir el Geniotipo; el servicio se presenta como un primer paso de autoconocimiento, no como orientación vocacional completa.
@@ -99,15 +107,15 @@ Compra anticipada de cuatro sesiones por 240 €, utilizables durante seis meses
 _Avoid_: suscripción, renovación automática, saldo indefinido
 
 **Test del Geniotipo**:
-Entrada gratuita al embudo mediante el enlace identificado de Mary en la plataforma oficial; el adolescente completa el cuestionario y recibe por correo el Mapa del Geniotipo y su informe antes de decidir si contrata una sesión de orientación.
-_Avoid_: programa obligatorio de varias sesiones, orientación vocacional completa
+Entrada gratuita al embudo mediante el enlace identificado de Mary en la plataforma oficial; la persona completa el cuestionario y recibe su geniotipo matriz. El mapa, la interpretación y cómo interactúan los geniotipos se entregan solo al contratar la sesión.
+_Avoid_: mapa incluido en el test, informe completo gratuito, programa obligatorio de varias sesiones, orientación vocacional completa
 
 **Educación emocional**:
 Enfoque transversal integrado en los recorridos AACC para familias y adultos, orientado a identificar, comprender y expresar emociones dentro del acompañamiento; no constituye una tercera oferta comercial independiente en el lanzamiento.
 _Avoid_: landing genérica de inteligencia emocional, terapia emocional, tratamiento emocional
 
 **Adolescente Geniotipo**:
-Participante de 13 a 18 años que acepta realizar el proceso con autorización y acompañamiento de sus tutores.
+Participante mayor de 14 años y menor de 18 que acepta realizar el proceso con autorización y acompañamiento de sus tutores.
 _Avoid_: menor cliente, paciente adolescente
 
 **Menor AACC**:
@@ -139,6 +147,10 @@ Exclusión o interrupción del acompañamiento cuando aparecen necesidades clín
 _Avoid_: diagnóstico informal, derivación gestionada por Mary
 
 ## Evidencia
+
+**Validación psicométrica del Geniotipo**:
+La Fundación Geniotipo publicó en 2023 una segunda validación del test realizada por un investigador independiente sobre 13.727 participantes. Puede describirse como «validación psicométrica independiente publicada» y debe enlazarse la fuente: https://fundaciongeniotipo.org/validacion-test-geniotipo/
+_Avoid_: avalado, certificado o validado por la Universidad de Barcelona; científicamente probado
 
 **Credencial**:
 Título o certificación cuyo nombre, entidad emisora y fecha pueden demostrarse documentalmente.
