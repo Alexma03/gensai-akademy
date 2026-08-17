@@ -1,0 +1,61 @@
+---
+const serviceLinks = [
+  { label: 'Geniotipo para adolescentes', href: '/geniotipo' },
+  { label: 'AACC para familias', href: '/altas-capacidades-familias' },
+  { label: 'AACC para adultos', href: '/altas-capacidades-adultos' },
+];
+
+const projectLinks = [
+  { label: 'Sobre Mary', href: '/sobre-mi' },
+  { label: 'Blog', href: '/blog' },
+];
+
+const legalLinks = [
+  { label: 'Aviso legal', href: '/aviso-legal' },
+  { label: 'Privacidad', href: '/privacidad' },
+  { label: 'Cookies', href: '/cookies' },
+  { label: 'Condiciones', href: '/condiciones' },
+];
+---
+
+<footer class="footer-gradient text-white/75">
+  <div class="page-container pt-14 pb-8 sm:pt-16">
+    <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.2fr_1fr_1fr_1.1fr]">
+      <div>
+        <a href="/" aria-label="Mary Garzón y GensAI, inicio" class="inline-flex items-center gap-3">
+          <span class="grid size-12 place-items-center rounded-xl bg-white p-1.5"><img src="/logo.jpeg" alt="" width="500" height="500" class="size-9 object-contain" /></span>
+          <span><span class="block font-serif text-lg text-white">Mary Garzón</span><span class="block text-[11px] font-semibold tracking-[0.1em] text-white/60">GENSAI</span></span>
+        </a>
+        <p class="mt-5 max-w-xs text-sm leading-relaxed text-white/65">Coaching y educación emocional para comprender el talento, las altas capacidades y los próximos pasos.</p>
+      </div>
+
+      <div>
+        <h2 class="text-sm font-semibold text-white">Acompañamientos</h2>
+        <ul class="mt-5 space-y-2.5">
+          {serviceLinks.map((link) => <li><a href={link.href} class="text-sm text-white/65 transition-colors hover:text-white">{link.label}</a></li>)}
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="text-sm font-semibold text-white">Conoce a Mary</h2>
+        <ul class="mt-5 space-y-2.5">
+          {projectLinks.map((link) => <li><a href={link.href} class="text-sm text-white/65 transition-colors hover:text-white">{link.label}</a></li>)}
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="text-sm font-semibold text-white">Atención online</h2>
+        <p class="mt-5 text-sm leading-relaxed text-white/65">España y Latinoamérica. Horarios mostrados en la zona del usuario al reservar.</p>
+        <p class="mt-3 text-sm leading-relaxed text-white/65">L-V 09:30-13:30 · L/X/V 16:00-19:00 (Madrid).</p>
+        <p class="mt-3 text-sm leading-relaxed text-white/65">Respuesta por WhatsApp en 24-48 horas laborables.</p>
+      </div>
+    </div>
+
+    <div class="mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 text-xs leading-relaxed text-white/55 lg:flex-row lg:items-center lg:justify-between">
+      <p>© 2026 Mary Garzón · GensAI. Todos los derechos reservados.</p>
+      <nav aria-label="Información legal" class="flex flex-wrap gap-x-5 gap-y-2">
+        {legalLinks.map((link) => <a href={link.href} class="transition-colors hover:text-white">{link.label}</a>)}
+      </nav>
+    </div>
+  </div>
+</footer>

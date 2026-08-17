@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/atoms/Button.astro';
+import Icon from '../components/atoms/Icon.astro';
+import PageHero from '../components/molecules/PageHero.astro';
+import FAQ from '../components/molecules/FAQ.astro';
+import { WHATSAPP_URL } from '../config/links';
+
+const steps = [
+  { title: 'Cuéntame vuestro caso', text: 'Por WhatsApp indicáis edad, país o zona horaria, identificación oficial y la situación que queréis trabajar.' },
+  { title: 'Confirmamos el encaje', text: 'Mary revisa el contexto y explica con honestidad si puede ayudaros y cómo lo abordaría.' },
+  { title: 'Sesión conjunta', text: 'El menor y sus tutores participan durante 60 minutos para comprender las dos miradas y ordenar próximos pasos.' },
+];
+
+const faqItems = [
+  { q: '¿Necesitamos una identificación oficial de altas capacidades?', a: 'Sí. Este acompañamiento comienza cuando el menor ya cuenta con una identificación oficial. Mary no realiza evaluación ni confirmación de altas capacidades.' },
+  { q: '¿A partir de qué edad trabajas?', a: 'Desde Educación Primaria. Los tutores contratan y autorizan el proceso, participan en la primera sesión y vuelven a intervenir en el cierre.' },
+  { q: '¿Las sesiones posteriores son con la familia?', a: 'Después de la primera sesión conjunta, las sesiones pueden ser individuales con el menor si todos consideramos que encaja. El proceso termina con un cierre junto a los tutores.' },
+  { q: '¿Podemos contratar una sola sesión?', a: 'Sí. La sesión inicial cuesta 65 €. Si necesitáis continuidad, podéis comprar sesiones sueltas o un paquete de cuatro por 240 €, utilizable durante seis meses.' },
+  { q: '¿Qué ocurre si necesitamos cambiar una cita?', a: 'Puede reprogramarse sin coste con al menos 24 horas de antelación. Con menos plazo o en caso de ausencia se considera consumida, salvo causa excepcional.' },
+  { q: '¿Es terapia infantil?', a: 'No. Es acompañamiento educativo y de coaching emocional. No diagnostica ni trata problemas psicológicos o de salud mental.' },
+];
+---
+
+<BaseLayout
+  title="Orientación para familias con hijos con altas capacidades | Mary Garzón"
+  description="Acompañamiento online para familias con menores ya identificados con altas capacidades: educación emocional, claridad y próximos pasos."
+  canonicalPath="/altas-capacidades-familias"
+>
+  <PageHero badge="Altas capacidades · Familias" tone="pink" description="Una primera sesión conjunta para escuchar al menor y a sus tutores, comprender la situación y decidir próximos pasos.">
+    Comprender lo que vive tu hijo para acompañarlo con más claridad
+  </PageHero>
+
+  <section class="bg-white py-20 sm:py-24">
+    <div class="page-container grid items-start gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+      <h2 class="text-3xl leading-tight tracking-[-0.015em] sm:text-4xl">Ya tenéis la identificación. Ahora necesitáis saber qué hacer con ella.</h2>
+      <div class="space-y-4 text-sm leading-relaxed text-brand-quiet sm:text-[15px]">
+        <p>Puede que vuestro hijo se aburra, se sienta diferente, viva algunas emociones con especial intensidad o encuentre dificultades para expresar lo que necesita.</p>
+        <p>La sesión no busca volver a evaluarlo. Busca comprender cómo lo está viviendo él, qué observáis vosotros y en qué situaciones educativas o cotidianas necesita más herramientas.</p>
+        <p class="font-semibold text-brand-ink">El objetivo es compartir una mirada más clara y decidir juntos si basta con esta orientación o tiene sentido continuar.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-brand-line bg-brand-mist py-20 sm:py-24">
+    <div class="page-container">
+      <div class="mx-auto max-w-2xl text-center"><h2 class="text-3xl sm:text-4xl">Cómo empezamos</h2><p class="mt-4 text-sm leading-relaxed text-brand-quiet">Primero conocemos el contexto. El pago llega únicamente después de confirmar que el acompañamiento encaja.</p></div>
+      <ol class="mx-auto mt-10 grid max-w-5xl gap-8 md:grid-cols-3 md:gap-10">
+        {steps.map((step, index) => <li class="border-t border-brand-pink-accessible pt-6"><span class="font-serif text-4xl text-brand-pink-accessible" aria-hidden="true">0{index + 1}</span><h3 class="mt-3 text-xl">{step.title}</h3><p class="mt-2 text-sm leading-relaxed text-brand-quiet">{step.text}</p></li>)}
+      </ol>
+    </div>
+  </section>
+
+  <section class="bg-white py-20 sm:py-24">
+    <div class="page-container grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+      <div>
+        <h2 class="text-3xl leading-tight tracking-[-0.015em] sm:text-4xl">Qué trabajamos en la primera sesión</h2>
+        <ul class="mt-7 space-y-4">
+          <li class="flex items-start gap-3"><Icon name="check-circle" size={18} class="mt-0.5 shrink-0 text-brand-pink-accessible" /><span class="text-sm leading-relaxed text-brand-quiet">Cómo comprende el menor sus altas capacidades y cómo las vive en su día a día.</span></li>
+          <li class="flex items-start gap-3"><Icon name="check-circle" size={18} class="mt-0.5 shrink-0 text-brand-pink-accessible" /><span class="text-sm leading-relaxed text-brand-quiet">Qué emociones o situaciones le resultan más difíciles de identificar, comunicar o gestionar.</span></li>
+          <li class="flex items-start gap-3"><Icon name="check-circle" size={18} class="mt-0.5 shrink-0 text-brand-pink-accessible" /><span class="text-sm leading-relaxed text-brand-quiet">Qué observa la familia y qué herramientas pueden probar en casa o en su entorno educativo.</span></li>
+          <li class="flex items-start gap-3"><Icon name="check-circle" size={18} class="mt-0.5 shrink-0 text-brand-pink-accessible" /><span class="text-sm leading-relaxed text-brand-quiet">Si conviene abrir un acompañamiento posterior individual con el menor.</span></li>
+        </ul>
+      </div>
+      <aside class="bg-brand-mist p-7 sm:p-9">
+        <h3 class="text-2xl">Sesión inicial familiar</h3>
+        <dl class="mt-6 divide-y divide-brand-line text-sm">
+          <div class="flex justify-between gap-4 py-3"><dt>Duración</dt><dd class="font-semibold text-brand-ink">60 minutos</dd></div>
+          <div class="flex justify-between gap-4 py-3"><dt>Participan</dt><dd class="text-right font-semibold text-brand-ink">Menor y tutores</dd></div>
+          <div class="flex justify-between gap-4 py-3"><dt>Formato</dt><dd class="font-semibold text-brand-ink">Google Meet</dd></div>
+          <div class="flex justify-between gap-4 py-3"><dt>Precio</dt><dd class="font-semibold text-brand-ink">65 €</dd></div>
+        </dl>
+        <Button href={WHATSAPP_URL} disabled={!WHATSAPP_URL} external={Boolean(WHATSAPP_URL)} variant="pink" class="mt-7 w-full" arrow>Cuéntame vuestro caso</Button>
+        {!WHATSAPP_URL && <p class="mt-3 text-xs leading-relaxed text-brand-quiet">El número profesional de WhatsApp se incorporará antes de publicar.</p>}
+      </aside>
+    </div>
+  </section>
+
+  <section class="border-y border-brand-line bg-brand-mist py-20 sm:py-24">
+    <div class="page-container grid gap-12 lg:grid-cols-2 lg:gap-16">
+      <div><h2 class="text-3xl sm:text-4xl">Si necesitáis continuidad</h2><p class="mt-5 text-sm leading-relaxed text-brand-quiet">Las sesiones posteriores pueden ser individuales con el menor. Trabajamos reconocimiento y expresión emocional mediante conversación, recursos prácticos y pequeñas actividades entre sesiones. El proceso incluye un cierre conjunto con los tutores.</p></div>
+      <div class="grid gap-5 sm:grid-cols-2">
+        <div class="border-t border-brand-green-accessible pt-6"><h3 class="text-xl">Sesión individual</h3><p class="mt-2 font-serif text-3xl text-brand-ink">65 €</p><p class="mt-2 text-sm text-brand-quiet">60 minutos</p></div>
+        <div class="border-t border-brand-green-accessible pt-6"><h3 class="text-xl">Paquete de 4 sesiones</h3><p class="mt-2 font-serif text-3xl text-brand-ink">240 €</p><p class="mt-2 text-sm text-brand-quiet">60 € por sesión · validez de 6 meses</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-20 sm:py-24">
+    <div class="page-container grid gap-12 lg:grid-cols-2 lg:gap-16">
+      <div><h2 class="text-3xl sm:text-4xl">Mary Garzón</h2><p class="mt-5 text-sm leading-relaxed text-brand-quiet">Coach especializada en talento, altas capacidades y educación emocional. Como madre y mujer identificada con altas capacidades, conoce la intensidad desde dentro y la acompaña con un marco práctico y respetuoso.</p><Button href="/sobre-mi" variant="ghost" class="mt-4 -ml-3" arrow>Conoce mi historia y formación</Button></div>
+      <div class="bg-brand-mist p-7 sm:p-9"><h3 class="text-2xl">Un marco claro y honesto</h3><p class="mt-4 text-sm leading-relaxed text-brand-quiet">Este servicio requiere identificación oficial previa. Es un acompañamiento educativo y de coaching: no realiza evaluación, diagnóstico ni tratamiento psicológico.</p></div>
+    </div>
+  </section>
+
+  <FAQ items={faqItems} heading="Preguntas frecuentes para familias" />
+
+  <section class="cta-pattern py-20 text-white sm:py-24">
+    <div class="page-container text-center"><h2 class="mx-auto max-w-3xl text-4xl text-white sm:text-5xl">Cuéntame qué estáis viviendo</h2><p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white">Antes de pagar, Mary revisará vuestro contexto y os dirá si puede ayudaros y cómo lo abordaría.</p><Button href={WHATSAPP_URL} disabled={!WHATSAPP_URL} external={Boolean(WHATSAPP_URL)} variant="white" size="lg" class="mt-8" arrow>Escribir por WhatsApp</Button></div>
+  </section>
+</BaseLayout>

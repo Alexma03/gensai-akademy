@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from './PageHero.astro';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<BaseLayout title={`${title} | Mary Garzón · GensAI`} description={description} noindex>
+  <PageHero badge="Borrador prepublicación" description={description}>{title}</PageHero>
+  <section class="bg-white py-16 sm:py-20">
+    <div class="page-container max-w-3xl prose-gensai">
+      <div class="mb-10 rounded-2xl border border-brand-pink/20 bg-brand-pink/10 p-6 text-sm leading-relaxed text-brand-ink">
+        Esta página no debe publicarse hasta completar los datos identificativos y realizar la revisión legal final.
+      </div>
+      <slot />
+    </div>
+  </section>
+</BaseLayout>

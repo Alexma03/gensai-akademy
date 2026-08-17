@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/atoms/Button.astro';
+---
+
+<BaseLayout
+  title="Página no encontrada | Mary Garzón · GensAI"
+  description="La página que buscas no existe."
+  noindex
+>
+  <section class="page-hero flex min-h-[68vh] items-center pt-24 pb-16">
+    <div class="page-container text-center">
+      <p class="font-serif text-7xl font-light tracking-[-0.04em] text-brand-green-accessible/30 sm:text-8xl">404</p>
+      <h1 class="mt-4 font-serif text-3xl font-medium tracking-[-0.015em] text-brand-ink sm:text-4xl">Página no encontrada</h1>
+      <p class="mx-auto mt-3 max-w-md text-sm leading-relaxed text-brand-quiet">Parece que te has desviado del camino. No pasa nada — te llevo de vuelta.</p>
+      <Button href="/" variant="green" size="lg" class="mt-8" arrow>Volver al inicio</Button>
+    </div>
+  </section>
+</BaseLayout>

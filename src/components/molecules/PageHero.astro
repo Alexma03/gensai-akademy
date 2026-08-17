@@ -1,0 +1,23 @@
+---
+import Badge from '../atoms/Badge.astro';
+
+interface Props {
+  badge: string;
+  description: string;
+  tone?: 'green' | 'pink' | 'orange' | 'violet';
+}
+
+const { badge, description, tone = 'green' } = Astro.props;
+---
+
+<header class="page-hero border-b border-brand-line pt-24 pb-14 sm:pt-28 sm:pb-16">
+  <div class="page-container text-center">
+    <Badge tone={tone} class="hero-enter">{badge}</Badge>
+    <h1 class="hero-enter hero-enter-delay-1 mx-auto mt-6 max-w-3xl text-4xl font-medium leading-[1.08] tracking-[-0.02em] text-brand-ink sm:text-5xl lg:text-[3.5rem]">
+      <slot />
+    </h1>
+    <p class="hero-enter hero-enter-delay-2 mx-auto mt-5 max-w-2xl text-balance text-base leading-relaxed text-brand-quiet sm:text-lg">
+      {description}
+    </p>
+  </div>
+</header>

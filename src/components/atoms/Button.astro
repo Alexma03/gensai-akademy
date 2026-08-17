@@ -1,0 +1,69 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+  href?: string;
+  variant?: 'green' | 'pink' | 'white' | 'outline-green' | 'outline-white' | 'ghost';
+  size?: 'sm' | 'md' | 'lg';
+  arrow?: boolean;
+  external?: boolean;
+  class?: string;
+  type?: 'button' | 'submit' | 'reset';
+  ariaLabel?: string;
+  disabled?: boolean;
+}
+
+const {
+  href,
+  variant = 'green',
+  size = 'md',
+  arrow = false,
+  external = false,
+  class: className,
+  type = 'button',
+  ariaLabel,
+  disabled = false,
+} = Astro.props;
+
+const variants = {
+  green: 'bg-brand-green-accessible text-white hover:bg-brand-green-accessible-deep',
+  pink: 'bg-brand-pink-accessible text-white hover:bg-brand-pink-accessible-deep',
+  white: 'bg-white text-brand-green-accessible hover:bg-brand-mist',
+  'outline-green': 'border border-brand-line bg-white text-brand-green-accessible hover:border-brand-green-accessible hover:bg-brand-green-accessible hover:text-white',
+  'outline-white': 'border border-white/25 bg-transparent text-white hover:bg-white/10',
+  ghost: 'bg-transparent text-brand-green-accessible hover:bg-brand-green/10',
+};
+
+const sizes = {
+  sm: 'min-h-10 px-5 py-2 text-[13px]',
+  md: 'min-h-11 px-6 py-3 text-[13px]',
+  lg: 'min-h-11 px-7 py-3 text-sm',
+};
+
+const classes = [
+  'group inline-flex w-fit items-center justify-center gap-2 rounded-full font-semibold tracking-[-0.01em] transition duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green-accessible focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+  variants[variant],
+  sizes[size],
+  className,
+];
+---
+
+{
+  href ? (
+    <a
+      href={href}
+      class:list={classes}
+      target={external ? '_blank' : undefined}
+      rel={external ? 'noopener noreferrer' : undefined}
+      aria-label={ariaLabel}
+    >
+      <slot />
+      {arrow && <Icon name={external ? 'arrow-up-right' : 'arrow-right'} size={15} class="transition-transform duration-200 group-hover:translate-x-0.5" />}
+    </a>
+  ) : (
+    <button type={type} class:list={classes} aria-label={ariaLabel} disabled={disabled}>
+      <slot />
+      {arrow && <Icon name="arrow-right" size={15} class="transition-transform duration-200 group-hover:translate-x-0.5" />}
+    </button>
+  )
+}

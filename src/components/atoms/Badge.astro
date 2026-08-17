@@ -1,0 +1,23 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+  tone?: 'green' | 'pink' | 'orange' | 'violet' | 'white';
+  icon?: 'sparkles' | 'star' | 'heart' | 'award' | 'book-open';
+  class?: string;
+}
+
+const { tone = 'green', icon = 'sparkles', class: className } = Astro.props;
+const tones = {
+  green: 'border border-brand-green/15 bg-brand-green/10 text-brand-green-accessible',
+  pink: 'border border-brand-pink/15 bg-brand-pink/10 text-brand-pink-accessible',
+  orange: 'border border-amber-200 bg-amber-50 text-amber-700',
+  violet: 'border border-violet-200 bg-violet-50 text-brand-violet-accessible',
+  white: 'border border-white/15 bg-white/10 text-white',
+};
+---
+
+<span class:list={['inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-semibold tracking-wide', tones[tone], className]}>
+  <Icon name={icon} size={14} />
+  <slot />
+</span>

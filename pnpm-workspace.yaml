@@ -1,0 +1,5 @@
+allowBuilds:
+  esbuild: true
+  workerd: set this to true or false
+minimumReleaseAgeExclude:
+  - astro@7.2.1

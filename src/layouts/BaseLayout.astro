@@ -1,0 +1,73 @@
+---
+import Navbar from '../components/organisms/Navbar';
+import Footer from '../components/organisms/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalPath?: string;
+  noindex?: boolean;
+}
+
+const { title, description, canonicalPath = Astro.url.pathname, noindex = false } = Astro.props;
+const canonical = new URL(canonicalPath, Astro.site ?? Astro.url.origin);
+const ogImage = new URL('/background.png', Astro.site ?? Astro.url.origin);
+const currentPath = Astro.url.pathname;
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': 'https://gensai-akademy.alex03marcos.workers.dev/sobre-mi#mary-garzon',
+      name: 'Mary Garzón',
+      url: 'https://gensai-akademy.alex03marcos.workers.dev/sobre-mi',
+      jobTitle: 'Coach especializada en talento, altas capacidades y educación emocional',
+    },
+    {
+      '@type': 'Organization',
+      '@id': 'https://gensai-akademy.alex03marcos.workers.dev/#gensai',
+      name: 'GensAI',
+      url: 'https://gensai-akademy.alex03marcos.workers.dev',
+      logo: 'https://gensai-akademy.alex03marcos.workers.dev/logo.jpeg',
+      founder: { '@id': 'https://gensai-akademy.alex03marcos.workers.dev/sobre-mi#mary-garzon' },
+    },
+  ],
+};
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="icon" type="image/jpeg" href="/logo.jpeg" />
+    <link rel="canonical" href={canonical} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)} />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen bg-brand-pond text-brand-body">
+    <a href="#main-content" class="fixed left-4 top-3 z-[70] -translate-y-20 rounded-lg bg-brand-ink px-4 py-3 text-sm font-semibold text-white transition-transform focus:translate-y-0">
+      Saltar al contenido
+    </a>
+    <Navbar currentPath={currentPath} client:load />
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

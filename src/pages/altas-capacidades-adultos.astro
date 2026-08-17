@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/atoms/Button.astro';
+import Icon from '../components/atoms/Icon.astro';
+import PageHero from '../components/molecules/PageHero.astro';
+import FAQ from '../components/molecules/FAQ.astro';
+import { WHATSAPP_URL } from '../config/links';
+
+const outcomes = [
+  { title: 'Comprender', text: 'Dar contexto a tu manera de pensar, sentir, aprender y relacionarte sin reducirla a una etiqueta.' },
+  { title: 'Elegir', text: 'Ordenar intereses, valores y prioridades cuando te atraen demasiados caminos o ninguno termina de encajar.' },
+  { title: 'Avanzar', text: 'Convertir la claridad en objetivos, decisiones y próximos pasos que puedas sostener.' },
+];
+
+const faqItems = [
+  { q: '¿Necesito una identificación oficial de altas capacidades?', a: 'Sí. Este servicio está dirigido a personas adultas que ya cuentan con una identificación oficial. Mary no evalúa ni confirma altas capacidades.' },
+  { q: '¿Puedo contratar una única sesión?', a: 'Sí. La primera sesión cuesta 65 € y puede ser suficiente para ordenar una situación concreta. Si quieres continuidad, puedes contratar sesiones sueltas o un paquete de cuatro por 240 €.' },
+  { q: '¿Qué puedo trabajar en las sesiones?', a: 'Claridad personal, propósito, prioridades, toma de decisiones, objetivos, comunicación y habilidades emocionales aplicadas a situaciones concretas.' },
+  { q: '¿Es terapia o tratamiento emocional?', a: 'No. Es coaching y educación emocional. No diagnostica, trata síntomas ni sustituye atención psicológica o sanitaria.' },
+  { q: '¿Cómo funcionan los paquetes?', a: 'El paquete incluye cuatro sesiones por 240 €, tiene una validez de seis meses y permite reservar cada sesión mediante un enlace privado.' },
+  { q: '¿Puedo cambiar una cita?', a: 'Sí, sin coste con al menos 24 horas de antelación. Con menos plazo o en caso de ausencia se considera consumida, salvo causa excepcional.' },
+];
+---
+
+<BaseLayout
+  title="Coaching para adultos con altas capacidades online | Mary Garzón"
+  description="Coaching online para adultos con identificación oficial de altas capacidades que buscan claridad, propósito, herramientas emocionales y acción."
+  canonicalPath="/altas-capacidades-adultos"
+>
+  <PageHero badge="Altas capacidades · Adultos" description="Coaching online para personas ya identificadas que quieren comprenderse mejor y convertir ese conocimiento en decisiones.">
+    Recupera dirección sin apagar tu intensidad
+  </PageHero>
+
+  <section class="bg-white py-20 sm:py-24">
+    <div class="page-container grid items-start gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+      <h2 class="text-3xl leading-tight tracking-[-0.015em] sm:text-4xl">Funcionas, pero algo ha perdido sentido</h2>
+      <div class="space-y-4 text-sm leading-relaxed text-brand-quiet sm:text-[15px]">
+        <p>Piensas mucho, te interesan muchas cosas y quizá te cuesta elegir una dirección. Puede que cumplas con todo mientras vives en piloto automático o hayas dejado de sentir entusiasmo por lo que antes te movía.</p>
+        <p>Saber que tienes altas capacidades puede explicar parte de tu historia, pero no decide qué hacer con ella. El coaching te ayuda a convertir ese autoconocimiento en claridad, prioridades y acción.</p>
+        <p class="font-semibold text-brand-ink">No prometemos encontrar un propósito definitivo. Trabajamos para reconocer qué importa ahora y cuál puede ser tu siguiente paso.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-brand-line bg-brand-mist py-20 sm:py-24">
+    <div class="page-container">
+      <div class="mx-auto max-w-2xl text-center"><h2 class="text-3xl sm:text-4xl">Del autoconocimiento a la acción</h2><p class="mt-4 text-sm leading-relaxed text-brand-quiet">Tres movimientos que se adaptan a tu objetivo y al momento que estás viviendo.</p></div>
+      <ol class="mx-auto mt-10 grid max-w-5xl gap-8 md:grid-cols-3 md:gap-10">
+        {outcomes.map((outcome, index) => <li class="border-t border-brand-green-accessible pt-6"><span class="font-serif text-4xl text-brand-green-accessible" aria-hidden="true">0{index + 1}</span><h3 class="mt-3 text-xl">{outcome.title}</h3><p class="mt-2 text-sm leading-relaxed text-brand-quiet">{outcome.text}</p></li>)}
+      </ol>
+    </div>
+  </section>
+
+  <section class="bg-white py-20 sm:py-24">
+    <div class="page-container grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+      <div>
+        <h2 class="text-3xl leading-tight tracking-[-0.015em] sm:text-4xl">Cómo empezamos</h2>
+        <ol class="mt-7 space-y-6">
+          <li class="grid grid-cols-[auto_1fr] gap-4"><Icon name="send" size={20} class="mt-1 text-brand-green-accessible" /><div><h3 class="text-xl">Cuéntame tu contexto</h3><p class="mt-2 text-sm leading-relaxed text-brand-quiet">Por WhatsApp indicas país o zona horaria, confirmas la identificación oficial y explicas brevemente qué quieres trabajar.</p></div></li>
+          <li class="grid grid-cols-[auto_1fr] gap-4"><Icon name="check-circle" size={20} class="mt-1 text-brand-green-accessible" /><div><h3 class="text-xl">Confirmamos el encaje</h3><p class="mt-2 text-sm leading-relaxed text-brand-quiet">Mary te dirá con honestidad si puede ayudarte y qué enfoque propone antes de que realices el pago.</p></div></li>
+          <li class="grid grid-cols-[auto_1fr] gap-4"><Icon name="target" size={20} class="mt-1 text-brand-green-accessible" /><div><h3 class="text-xl">Concretamos un objetivo</h3><p class="mt-2 text-sm leading-relaxed text-brand-quiet">La primera sesión ordena tu situación y permite decidir si necesitas continuidad.</p></div></li>
+        </ol>
+      </div>
+      <aside class="bg-brand-mist p-7 sm:p-9">
+        <h3 class="text-2xl">Sesión individual</h3>
+        <dl class="mt-6 divide-y divide-brand-line text-sm">
+          <div class="flex justify-between gap-4 py-3"><dt>Duración</dt><dd class="font-semibold text-brand-ink">60 minutos</dd></div>
+          <div class="flex justify-between gap-4 py-3"><dt>Formato</dt><dd class="font-semibold text-brand-ink">Google Meet</dd></div>
+          <div class="flex justify-between gap-4 py-3"><dt>Precio</dt><dd class="font-semibold text-brand-ink">65 €</dd></div>
+          <div class="flex justify-between gap-4 py-3"><dt>Paquete de 4</dt><dd class="font-semibold text-brand-ink">240 €</dd></div>
+        </dl>
+        <Button href={WHATSAPP_URL} disabled={!WHATSAPP_URL} external={Boolean(WHATSAPP_URL)} variant="green" class="mt-7 w-full" arrow>Cuéntame tu caso</Button>
+        {!WHATSAPP_URL && <p class="mt-3 text-xs leading-relaxed text-brand-quiet">El número profesional de WhatsApp se incorporará antes de publicar.</p>}
+      </aside>
+    </div>
+  </section>
+
+  <section class="border-y border-brand-line bg-brand-mist py-20 sm:py-24">
+    <div class="page-container grid gap-12 lg:grid-cols-2 lg:gap-16">
+      <div><h2 class="text-3xl sm:text-4xl">Qué puede formar parte del proceso</h2><p class="mt-5 text-sm leading-relaxed text-brand-quiet">Cada acompañamiento se organiza alrededor de un objetivo real. Podemos trabajar claridad profesional o personal, propósito, multipotencialidad, comunicación, toma de decisiones y habilidades emocionales.</p></div>
+      <ul class="space-y-4">
+        <li class="flex items-start gap-3"><Icon name="check-circle" size={18} class="mt-0.5 shrink-0 text-brand-green-accessible" /><span class="text-sm leading-relaxed text-brand-quiet">Ejercicios breves entre sesiones cuando aporten valor.</span></li>
+        <li class="flex items-start gap-3"><Icon name="check-circle" size={18} class="mt-0.5 shrink-0 text-brand-green-accessible" /><span class="text-sm leading-relaxed text-brand-quiet">Un plan personal de próximos pasos construido durante el proceso.</span></li>
+        <li class="flex items-start gap-3"><Icon name="check-circle" size={18} class="mt-0.5 shrink-0 text-brand-green-accessible" /><span class="text-sm leading-relaxed text-brand-quiet">Sesiones sueltas o paquete de cuatro, sin suscripción ni renovación automática.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="bg-white py-20 sm:py-24">
+    <div class="page-container grid gap-12 lg:grid-cols-2 lg:gap-16">
+      <div><h2 class="text-3xl sm:text-4xl">Mary también recorrió este camino</h2><p class="mt-5 text-sm leading-relaxed text-brand-quiet">Su identificación de altas capacidades y el Mapa del Geniotipo le ayudaron a releer su historia, valorar sus capacidades creativas y recuperar dirección. Hoy une esa experiencia con formación en inteligencia emocional, talento y AACC.</p><Button href="/sobre-mi" variant="ghost" class="mt-4 -ml-3" arrow>Conoce mi historia y formación</Button></div>
+      <div class="bg-brand-mist p-7 sm:p-9"><h3 class="text-2xl">Coaching con límites claros</h3><p class="mt-4 text-sm leading-relaxed text-brand-quiet">Este acompañamiento requiere una identificación oficial previa y no realiza evaluación, diagnóstico ni tratamiento psicológico. Sentirte diferente, vivir con intensidad o perder entusiasmo puede tener muchas causas.</p></div>
+    </div>
+  </section>
+
+  <FAQ items={faqItems} heading="Preguntas frecuentes sobre el coaching AACC" />
+
+  <section class="cta-pattern py-20 text-white sm:py-24">
+    <div class="page-container text-center"><h2 class="mx-auto max-w-3xl text-4xl text-white sm:text-5xl">Convierte lo que sabes de ti en un siguiente paso</h2><p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white">Cuéntale a Mary qué quieres trabajar. Antes de pagar, confirmará si puede ayudarte y cómo abordaría el proceso.</p><Button href={WHATSAPP_URL} disabled={!WHATSAPP_URL} external={Boolean(WHATSAPP_URL)} variant="white" size="lg" class="mt-8" arrow>Escribir por WhatsApp</Button></div>
+  </section>
+</BaseLayout>

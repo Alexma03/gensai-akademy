@@ -1,0 +1,167 @@
+---
+import { getCollection } from 'astro:content';
+import Badge from './atoms/Badge.astro';
+import Button from './atoms/Button.astro';
+import Icon from './atoms/Icon.astro';
+import BlogCard from './molecules/BlogCard.astro';
+import ServiceCard from './molecules/ServiceCard.astro';
+
+const services = [
+  {
+    icon: 'brain' as const,
+    title: 'Geniotipo para adolescentes',
+    description: 'Un punto de partida para que un adolescente reconozca sus capacidades y explore su camino con más claridad.',
+    bullets: ['Test oficial gratuito', 'Mapa e informe del Geniotipo', 'Sesión opcional con adolescente y tutores'],
+    href: '/geniotipo',
+    accent: 'green' as const,
+  },
+  {
+    icon: 'users' as const,
+    title: 'AACC para familias',
+    description: 'Orientación educativa y emocional para familias con un menor que ya cuenta con identificación oficial.',
+    bullets: ['Primera sesión conjunta', 'Herramientas para el día a día', 'Continuidad individual si encaja'],
+    href: '/altas-capacidades-familias',
+    accent: 'pink' as const,
+  },
+  {
+    icon: 'lightbulb' as const,
+    title: 'AACC para adultos',
+    description: 'Coaching para convertir el autoconocimiento en claridad, decisiones y pasos concretos.',
+    bullets: ['Identificación oficial previa', 'Sesiones individuales online', 'Propósito, emoción y acción'],
+    href: '/altas-capacidades-adultos',
+    accent: 'green' as const,
+  },
+];
+
+const principles = [
+  { title: 'Talento', text: 'Comprender tus capacidades y reconocer dónde aportas de forma natural.' },
+  { title: 'Emoción', text: 'Aprender a identificar, comprender y expresar mejor lo que sientes.' },
+  { title: 'Dirección', text: 'Traducir ese conocimiento en decisiones y próximos pasos realistas.' },
+];
+
+const CATEGORY_META = {
+  geniotipo: { label: 'Geniotipo', accent: 'green' as const },
+  'altas-capacidades-familias': { label: 'AACC familias', accent: 'pink' as const },
+  'altas-capacidades-adultos': { label: 'AACC adultos', accent: 'green' as const },
+};
+
+const posts = (await getCollection('blog'))
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+  .map((post) => {
+    const meta = CATEGORY_META[post.data.category];
+    return {
+      letter: meta.label.charAt(0),
+      category: meta.label,
+      title: post.data.title,
+      excerpt: post.data.description,
+      date: post.data.pubDate.toLocaleDateString('es-ES', { day: 'numeric', month: 'short', year: 'numeric' }),
+      time: `${post.data.minutes} min`,
+      href: `/blog/${post.id}`,
+      accent: meta.accent,
+    };
+  });
+---
+
+<section class="lotus-hero relative flex min-h-[88vh] items-center overflow-hidden pt-24 pb-16">
+  <div class="page-container relative z-10">
+    <div class="max-w-3xl">
+      <Badge tone="green" class="hero-enter">Mary Garzón · GensAI</Badge>
+      <h1 class="hero-enter hero-enter-delay-1 mt-6 max-w-[46rem] text-4xl leading-[1.06] tracking-[-0.02em] sm:text-5xl lg:text-[3.75rem]">
+        Comprende cómo piensas, sientes y desarrollas tu <em class="font-normal italic text-brand-green-accessible">talento</em>
+      </h1>
+      <p class="hero-enter hero-enter-delay-2 mt-6 max-w-2xl text-base leading-relaxed text-brand-quiet sm:text-lg">Soy coach especializada en talento, altas capacidades y educación emocional. Te acompaño a avanzar con mayor claridad, sin diagnósticos ni promesas mágicas.</p>
+      <div class="hero-enter hero-enter-delay-3 mt-8 flex flex-col gap-3 sm:flex-row">
+        <Button href="#recorridos" variant="pink" size="lg" arrow>Descubre cómo puedo ayudarte</Button>
+        <Button href="/sobre-mi" variant="outline-green" size="lg">Conoce mi historia</Button>
+      </div>
+      <p class="hero-enter hero-enter-delay-3 mt-4 text-xs tracking-wide text-brand-quiet">Acompañamiento online · España y Latinoamérica</p>
+    </div>
+  </div>
+</section>
+
+<section id="recorridos" class="border-y border-brand-line bg-brand-mist py-20 sm:py-24">
+  <div class="page-container">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2 class="text-3xl leading-tight tracking-[-0.015em] sm:text-4xl">Tres recorridos para necesidades <em class="font-normal italic text-brand-pink-accessible">diferentes</em></h2>
+      <p class="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-brand-quiet sm:text-[15px]">Elige el punto de partida que mejor describe lo que estás viviendo ahora.</p>
+    </div>
+    <div class="mt-10 grid gap-5 md:grid-cols-3">
+      {services.map((service) => <ServiceCard {...service} />)}
+    </div>
+  </div>
+</section>
+
+<section class="bg-white py-20 sm:py-24">
+  <div class="page-container grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+    <div>
+      <Badge tone="green" icon="star">Mi enfoque</Badge>
+      <h2 class="mt-4 text-3xl leading-tight tracking-[-0.015em] sm:text-4xl">Talento, emoción y dirección</h2>
+      <p class="mt-5 max-w-lg text-sm leading-relaxed text-brand-quiet sm:text-[15px]">No trabajo con una fórmula idéntica para todo el mundo. Partimos de tu contexto, ponemos nombre a lo importante y lo convertimos en acciones que puedas sostener.</p>
+    </div>
+    <ol class="space-y-7">
+      {principles.map((principle, index) => (
+        <li class="grid grid-cols-[auto_1fr] gap-5 border-t border-brand-line pt-6">
+          <span class="font-serif text-3xl text-brand-green-accessible/70" aria-hidden="true">0{index + 1}</span>
+          <div><h3 class="text-xl">{principle.title}</h3><p class="mt-2 text-sm leading-relaxed text-brand-quiet">{principle.text}</p></div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<section class="border-y border-brand-line bg-brand-mist py-20 sm:py-24">
+  <div class="page-container grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+    <div class="grid aspect-[4/5] place-items-center rounded-2xl border border-dashed border-brand-line bg-brand-pond p-8 text-center">
+      <div>
+        <span class="mx-auto grid size-12 place-items-center rounded-full border border-brand-line bg-white text-brand-quiet"><Icon name="users" size={20} /></span>
+        <p class="mt-4 text-sm font-medium text-brand-ink">Foto de Mary</p>
+        <p class="mt-1 text-xs text-brand-quiet">Pendiente de incorporar</p>
+      </div>
+    </div>
+    <div>
+      <Badge tone="pink" icon="heart">Mi historia</Badge>
+      <h2 class="mt-4 text-3xl leading-tight tracking-[-0.015em] sm:text-4xl">Yo también me sentí extraña, intensa y fuera de lugar</h2>
+      <div class="mt-5 max-w-xl space-y-4 text-sm leading-relaxed text-brand-quiet sm:text-[15px]">
+        <p>Después de más de veinte años en el sector del automóvil, un despido me hizo caer en un abismo. Pedí ayuda, pero lo que me proponían no era lo que necesitaba.</p>
+        <p>El Geniotipo y mi identificación de altas capacidades abrieron un ventanal: empecé a comprender mis capacidades, a quererme y a encontrar una nueva dirección.</p>
+        <p>Hoy pongo esa experiencia y mi formación al servicio de quienes también necesitan comprenderse para avanzar.</p>
+      </div>
+      <Button href="/sobre-mi" variant="green" class="mt-7" arrow>Lee mi historia completa</Button>
+    </div>
+  </div>
+</section>
+
+<section class="bg-white py-20 sm:py-24">
+  <div class="page-container grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16">
+    <div><Badge tone="green" icon="award">Formación</Badge><h2 class="mt-4 text-3xl leading-tight sm:text-4xl">Preparación con un marco claro</h2></div>
+    <ul class="divide-y divide-brand-line border-y border-brand-line">
+      <li class="py-5"><strong class="block text-sm text-brand-ink">Experta Universitaria en Inteligencia Emocional</strong><span class="mt-1 block text-sm text-brand-quiet">Especializada en Educación Emocional · UNIR, 2025</span></li>
+      <li class="py-5"><strong class="block text-sm text-brand-ink">Metodología Geniotipo y Psicogenium</strong><span class="mt-1 block text-sm text-brand-quiet">Tony Estruch, fundador del Geniotipo · 2025</span></li>
+      <li class="py-5"><strong class="block text-sm text-brand-ink">Máster en Altas Capacidades y Desarrollo del Talento</strong><span class="mt-1 block text-sm text-brand-quiet">UNIR, 2026</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="border-y border-brand-line bg-brand-mist py-20 sm:py-24">
+  <div class="page-container">
+    <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+      <div class="max-w-xl"><Badge tone="pink" icon="book-open">Blog</Badge><h2 class="mt-4 text-3xl tracking-[-0.015em] sm:text-4xl">Ideas para comprender y <em class="font-normal italic text-brand-green-accessible">avanzar</em></h2></div>
+      <Button href="/blog" variant="ghost" arrow>Ver el blog</Button>
+    </div>
+    <div class="mt-10 grid gap-5 md:grid-cols-2">
+      {posts.map((post) => <BlogCard {...post} />)}
+    </div>
+  </div>
+</section>
+
+<section class="cta-pattern py-20 text-white sm:py-24">
+  <div class="page-container text-center">
+    <h2 class="mx-auto max-w-3xl text-4xl text-white sm:text-5xl">Empieza por el recorrido que hoy tiene sentido para ti</h2>
+    <p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white">Puedes conocer el Geniotipo para adolescentes, explorar el acompañamiento familiar o descubrir el coaching para adultos con altas capacidades.</p>
+    <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+      <Button href="/geniotipo" variant="white">Geniotipo</Button>
+      <Button href="/altas-capacidades-familias" variant="outline-white">AACC familias</Button>
+      <Button href="/altas-capacidades-adultos" variant="outline-white">AACC adultos</Button>
+    </div>
+  </div>
+</section>

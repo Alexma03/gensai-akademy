@@ -1,0 +1,40 @@
+---
+import Button from '../atoms/Button.astro';
+import Icon from '../atoms/Icon.astro';
+
+type IconName = 'brain' | 'heart' | 'lightbulb' | 'users';
+
+interface Props {
+  icon: IconName;
+  title: string;
+  description: string;
+  bullets: string[];
+  href: string;
+  accent?: 'green' | 'pink';
+}
+
+const { icon, title, description, bullets, href, accent = 'green' } = Astro.props;
+const isPink = accent === 'pink';
+const iconTone = isPink
+  ? 'border border-brand-pink/15 bg-brand-pink/10 text-brand-pink-accessible'
+  : 'border border-brand-green/15 bg-brand-green/10 text-brand-green-accessible';
+---
+
+<article class="flex h-full flex-col rounded-2xl border border-brand-line bg-white p-6 sm:p-7">
+  <span class:list={['grid size-10 place-items-center rounded-xl', iconTone]}>
+    <Icon name={icon} size={20} />
+  </span>
+  <h3 class="mt-5 font-serif text-xl font-medium text-brand-ink">{title}</h3>
+  <p class="mt-2.5 text-sm leading-relaxed text-brand-quiet">{description}</p>
+  <ul class="mt-5 space-y-2 border-t border-brand-line pt-5 text-xs leading-relaxed text-brand-quiet">
+    {bullets.map((item) => (
+      <li class="flex items-start gap-2">
+        <span class="mt-2 size-1 shrink-0 rounded-full bg-brand-green-accessible" aria-hidden="true"></span>
+        <span>{item}</span>
+      </li>
+    ))}
+  </ul>
+  <Button href={href} variant="ghost" size="sm" arrow class:list={['mt-5 -ml-3', isPink && 'text-brand-pink-accessible hover:bg-brand-pink/10']}>
+    Saber más
+  </Button>
+</article>

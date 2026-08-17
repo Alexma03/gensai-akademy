@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Badge from '../components/atoms/Badge.astro';
+import Button from '../components/atoms/Button.astro';
+import Icon from '../components/atoms/Icon.astro';
+import PageHero from '../components/molecules/PageHero.astro';
+---
+
+<BaseLayout
+  title="Sobre mí | Mary Garzón, coach de talento y altas capacidades"
+  description="Conoce la historia, formación y enfoque de Mary Garzón, coach especializada en Geniotipo, altas capacidades y educación emocional."
+  canonicalPath="/sobre-mi"
+>
+  <PageHero badge="Conoce mi historia" tone="pink" description="Soy coach especializada en talento, altas capacidades y educación emocional. Pero antes de acompañar a otras personas, necesité comprenderme a mí misma.">
+    Hola, soy Mary Garzón
+  </PageHero>
+
+  <section class="bg-white py-20 sm:py-24">
+    <div class="page-container grid items-center gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+      <div class="grid aspect-[4/5] place-items-center rounded-2xl border border-dashed border-brand-line bg-brand-pond p-8 text-center">
+        <div><span class="mx-auto grid size-12 place-items-center rounded-full border border-brand-line bg-white text-brand-quiet"><Icon name="users" size={20} /></span><p class="mt-4 text-sm font-medium text-brand-ink">Foto de Mary</p><p class="mt-1 text-xs text-brand-quiet">Pendiente de incorporar</p></div>
+      </div>
+      <div>
+        <Badge tone="green">Quién soy hoy</Badge>
+        <h2 class="mt-4 text-3xl leading-tight sm:text-4xl">Pongo mis capacidades creativas al servicio de tu camino</h2>
+        <div class="mt-5 space-y-4 text-sm leading-relaxed text-brand-quiet sm:text-[15px]">
+          <p>Hoy acompaño a adolescentes, familias y adultos a comprender mejor su talento, sus emociones y la dirección que quieren tomar.</p>
+          <p>Trabajo desde el coaching y la educación emocional, con preguntas, herramientas y conversaciones que convierten el autoconocimiento en decisiones prácticas.</p>
+          <p>No tengo respuestas cerradas para tu vida. Mi función es ayudarte a reconocer las tuyas con más claridad.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-brand-line bg-brand-mist py-20 sm:py-24">
+    <div class="page-container max-w-4xl">
+      <Badge tone="pink">Mi yo del pasado</Badge>
+      <h2 class="mt-4 text-3xl leading-tight sm:text-4xl">Durante mucho tiempo me sentí extraña, intensa y fuera de lugar</h2>
+      <div class="mt-6 space-y-4 text-sm leading-relaxed text-brand-quiet sm:text-[15px]">
+        <p>Me licencié en Filología Inglesa y oposité sin demasiado convencimiento de que ser profesora fuera a darme la libertad para enseñar que encontraba en las clases particulares.</p>
+        <p>Pasé más de veinte años trabajando en el sector del automóvil. Conocí personas y lugares, viajé y aprendí cuanto pude para saciar mi curiosidad. Después tuve a mis hijas y descubrí el amor incondicional, junto con el reto de acompañar una intensidad que a veces desbordaba la mía.</p>
+        <p>Cuando me despidieron, caí en un abismo. Pedí ayuda y no la encontré: lo que me proponían no era lo que necesitaba.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-20 sm:py-24">
+    <div class="page-container max-w-4xl">
+      <Badge tone="green">Mi yo del presente</Badge>
+      <h2 class="mt-4 text-3xl leading-tight sm:text-4xl">Entonces se abrió un ventanal</h2>
+      <div class="mt-6 space-y-4 text-sm leading-relaxed text-brand-quiet sm:text-[15px]">
+        <p>Decidí estudiar y formarme para entenderme y entender. En ese momento de dudas profundas, Tony Estruch y la herramienta del Geniotipo creada por él se cruzaron en mi camino.</p>
+        <p>Poco después fui evaluada en altas capacidades. Empecé a comprenderme, a quererme y a agradecer mi capacidad intelectual, especialmente las capacidades creativas innatas que aparecieron en mi Mapa del Geniotipo.</p>
+        <p>Ese mapa no decidió por mí, pero iluminó el sendero. Mi vida empezó a cobrar un nuevo sentido y nació el deseo de acompañar a otras personas desde todo lo aprendido.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-brand-line bg-brand-mist py-20 sm:py-24">
+    <div class="page-container grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+      <div><Badge tone="pink">Mi yo del futuro</Badge><h2 class="mt-4 text-3xl leading-tight sm:text-4xl">Agradecimiento y libertad para acompañar</h2></div>
+      <div class="space-y-4 text-sm leading-relaxed text-brand-quiet sm:text-[15px]"><p>Miro hacia el futuro con agradecimiento por lo vivido, por los lugares recorridos, las personas conocidas, el conocimiento adquirido y la libertad sentida.</p><p>Y especialmente agradezco poder usar mis capacidades creativas innatas para acompañarte en el sendero que tú has de transitar.</p></div>
+    </div>
+  </section>
+
+  <section class="bg-white py-20 sm:py-24">
+    <div class="page-container grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+      <div><img src="/logo.jpeg" alt="Símbolo de GensAI" width="500" height="500" loading="lazy" class="mx-auto w-full max-w-sm object-contain" /></div>
+      <div>
+        <Badge tone="green">La marca que acompaña mi trabajo</Badge>
+        <h2 class="mt-4 text-3xl leading-tight sm:text-4xl">Qué significa GensAI</h2>
+        <div class="mt-5 space-y-4 text-sm leading-relaxed text-brand-quiet sm:text-[15px]">
+          <p><strong class="text-brand-ink">Gen</strong> representa el origen, la fuente o la raíz: la base de lo que somos y la idea que conecta con el Geniotipo.</p>
+          <p><strong class="text-brand-ink">Sai</strong> representa el talento o la capacidad y conecta con el desarrollo de las altas capacidades.</p>
+          <p>Juntos expresan la raíz o fuente del talento. GensAI no tiene relación con la inteligencia artificial: es la marca que reúne y respalda mis acompañamientos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-brand-line bg-brand-mist py-20 sm:py-24">
+    <div class="page-container grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16">
+      <div><Badge tone="green" icon="award">Formación</Badge><h2 class="mt-4 text-3xl leading-tight sm:text-4xl">Credenciales</h2><p class="mt-4 text-sm leading-relaxed text-brand-quiet">Los diplomas y enlaces de verificación se incorporarán cuando estén preparados para publicación.</p></div>
+      <ul class="divide-y divide-brand-line border-y border-brand-line">
+        <li class="py-5"><strong class="block text-sm text-brand-ink">Experta Universitaria en Inteligencia Emocional</strong><span class="mt-1 block text-sm text-brand-quiet">Especializada en Educación Emocional · UNIR, 2025</span></li>
+        <li class="py-5"><strong class="block text-sm text-brand-ink">Certificado en Metodología Geniotipo y Psicogenium</strong><span class="mt-1 block text-sm text-brand-quiet">Tony Estruch, fundador del Geniotipo · 2025</span></li>
+        <li class="py-5"><strong class="block text-sm text-brand-ink">Máster en Altas Capacidades y Desarrollo del Talento</strong><span class="mt-1 block text-sm text-brand-quiet">UNIR, 2026</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="bg-white py-20 sm:py-24">
+    <div class="page-container grid gap-12 lg:grid-cols-2 lg:gap-16">
+      <div><h2 class="text-3xl sm:text-4xl">Cómo acompaño</h2><p class="mt-5 text-sm leading-relaxed text-brand-quiet">Escucho el contexto, concretamos un objetivo y utilizamos herramientas de coaching, talento y educación emocional para avanzar con pasos realistas. Cuando trabajan menores, sus tutores contratan, autorizan y participan según el momento del proceso.</p></div>
+      <div class="bg-brand-mist p-7 sm:p-9"><h3 class="text-2xl">Qué no hago</h3><p class="mt-4 text-sm leading-relaxed text-brand-quiet">No realizo evaluación, diagnóstico, psicoterapia ni tratamiento. Los acompañamientos AACC requieren identificación oficial previa y se interrumpen cuando aparece una necesidad clínica que corresponde a un profesional sanitario cualificado.</p></div>
+    </div>
+  </section>
+
+  <section class="cta-pattern py-20 text-white sm:py-24">
+    <div class="page-container text-center"><h2 class="mx-auto max-w-3xl text-4xl text-white sm:text-5xl">Elige el recorrido que mejor encaja contigo</h2><div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row"><Button href="/geniotipo" variant="white">Geniotipo</Button><Button href="/altas-capacidades-familias" variant="outline-white">AACC familias</Button><Button href="/altas-capacidades-adultos" variant="outline-white">AACC adultos</Button></div></div>
+  </section>
+</BaseLayout>
