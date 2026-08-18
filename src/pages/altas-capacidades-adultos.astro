@@ -37,13 +37,14 @@ const faqItems = [
   </PageHero>
 
   <section class="bg-white py-20 sm:py-24">
-    <div class="page-container grid items-start gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-      <h2 class="text-3xl leading-tight tracking-[-0.015em] sm:text-4xl">Funcionas, pero algo ha perdido sentido</h2>
-      <div class="space-y-4 text-sm leading-relaxed text-brand-quiet sm:text-[15px]">
+    <div class="page-container max-w-3xl">
+      <span class="inline-flex items-center gap-1.5 rounded-full border border-brand-green/15 bg-brand-green/10 px-3.5 py-1.5 text-xs font-semibold tracking-wide text-brand-green-accessible"><Icon name="sparkles" size={14} /> Tras la identificación</span>
+      <h2 class="mt-4 text-3xl leading-tight tracking-[-0.015em] sm:text-4xl">Funcionas, pero algo <em class="font-normal italic text-brand-green-accessible">ha perdido sentido</em></h2>
+      <div class="mt-6 space-y-4 text-sm leading-relaxed text-brand-quiet sm:text-[15px]">
         <p>Piensas mucho, te interesan muchas cosas y quizá te cuesta elegir una dirección. Puede que cumplas con todo mientras vives en piloto automático o hayas dejado de sentir entusiasmo por lo que antes te movía.</p>
         <p>Saber que tienes altas capacidades puede explicar parte de tu historia, pero no decide qué hacer con ella. El coaching te ayuda a convertir ese autoconocimiento en claridad, prioridades y acción.</p>
-        <p class="font-semibold text-brand-ink">No prometemos encontrar un propósito definitivo. Trabajamos para reconocer qué importa ahora y cuál puede ser tu siguiente paso.</p>
       </div>
+      <p class="mt-6 rounded-xl border-l-2 border-brand-green-accessible bg-brand-mist px-5 py-4 text-sm font-semibold leading-relaxed text-brand-ink">No prometemos encontrar un propósito definitivo. Trabajamos para reconocer qué importa ahora y cuál puede ser tu siguiente paso.</p>
     </div>
   </section>
 
@@ -102,7 +103,8 @@ const faqItems = [
 
   <section class="cta-pattern py-16 sm:py-20">
     <div class="page-container">
-      <div class="rounded-[2rem] border border-brand-line bg-white px-6 py-10 text-center shadow-ambient sm:px-12 sm:py-14">
+        <div class="rounded-[2rem] border border-brand-line bg-white px-6 py-10 text-center shadow-ambient sm:px-12 sm:py-14">
+        <img src="/icons/geniotipo-cta.webp" alt="Brote creciendo como símbolo de un primer paso" width="512" height="512" loading="lazy" decoding="async" class="mx-auto mb-5 size-24 rounded-2xl object-cover" />
         <h2 class="mx-auto max-w-3xl text-4xl sm:text-5xl">Convierte lo que sabes de ti en un siguiente paso</h2>
         <p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-brand-quiet">Cuéntale a Mary qué quieres trabajar. Antes de pagar, confirmará si puede ayudarte y cómo abordaría el proceso.</p>
         <Button href={WHATSAPP_URL} disabled={!WHATSAPP_URL} external={Boolean(WHATSAPP_URL)} variant="green" size="lg" class="mt-8" arrow>Escribir por WhatsApp</Button>

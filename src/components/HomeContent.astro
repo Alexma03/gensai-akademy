@@ -4,11 +4,13 @@ import Badge from './atoms/Badge.astro';
 import Button from './atoms/Button.astro';
 import Icon from './atoms/Icon.astro';
 import BlogCard from './molecules/BlogCard.astro';
+import FormationPillars from './molecules/FormationPillars.astro';
 import ServiceCard from './molecules/ServiceCard.astro';
 
 const services = [
   {
-    icon: 'brain' as const,
+    image: '/icons/geniotipo.webp',
+    imageAlt: 'Símbolo del Geniotipo con formas geométricas entrelazadas',
     title: 'Geniotipo',
     description: 'Una herramienta de autoconocimiento para reconocer capacidades y explorar decisiones en la adolescencia o la edad adulta.',
     bullets: ['Validación psicométrica publicada', 'Resultado gratuito: tu geniotipo matriz', 'Lecturas para adolescentes y adultos'],
@@ -16,7 +18,8 @@ const services = [
     accent: 'green' as const,
   },
   {
-    icon: 'users' as const,
+    image: '/icons/aacc-adolescentes.webp',
+    imageAlt: 'Cuaderno abierto del que brota una planta, símbolo del talento adolescente',
     title: 'AACC para adolescentes',
     description: 'Orientación educativa y emocional para familias con un menor que ya cuenta con identificación oficial.',
     bullets: ['Primera sesión conjunta', 'Herramientas para el día a día', 'Continuidad individual si encaja'],
@@ -24,7 +27,8 @@ const services = [
     accent: 'pink' as const,
   },
   {
-    icon: 'lightbulb' as const,
+    image: '/icons/aacc-adultos.webp',
+    imageAlt: 'Brújula junto a un camino, símbolo de claridad y dirección para adultos',
     title: 'AACC para adultos',
     description: 'Coaching para convertir el autoconocimiento en claridad, decisiones y pasos concretos.',
     bullets: ['Identificación oficial previa', 'Sesiones individuales online', 'Propósito, emoción y acción'],
@@ -34,9 +38,9 @@ const services = [
 ];
 
 const principles = [
-  { title: 'Talento', text: 'Comprender tus capacidades y reconocer dónde aportas de forma natural.' },
-  { title: 'Emoción', text: 'Aprender a identificar, comprender y expresar mejor lo que sientes.' },
-  { title: 'Dirección', text: 'Traducir ese conocimiento en decisiones y próximos pasos realistas.' },
+  { image: '/icons/talento.webp', imageAlt: 'Mano que sostiene una semilla con hojas', title: 'Talento', text: 'Comprender tus capacidades y reconocer dónde aportas de forma natural.' },
+  { image: '/icons/emocion.webp', imageAlt: 'Corazón rosa sostenido por dos manos', title: 'Emoción', text: 'Aprender a identificar, comprender y expresar mejor lo que sientes.' },
+  { image: '/icons/direccion.webp', imageAlt: 'Brújula frente a un camino hacia el amanecer', title: 'Dirección', text: 'Traducir ese conocimiento en decisiones y próximos pasos realistas.' },
 ];
 
 const CATEGORY_META = {
@@ -99,9 +103,9 @@ const posts = (await getCollection('blog'))
       <p class="mt-5 max-w-lg text-sm leading-relaxed text-brand-quiet sm:text-[15px]">No trabajo con una fórmula idéntica para todo el mundo. Partimos de tu contexto, ponemos nombre a lo importante y lo convertimos en acciones que puedas sostener.</p>
     </div>
     <ol class="space-y-7">
-      {principles.map((principle, index) => (
-        <li class="grid grid-cols-[auto_1fr] gap-5 border-t border-brand-line pt-6">
-          <span class="font-serif text-3xl text-brand-green-accessible/70" aria-hidden="true">0{index + 1}</span>
+      {principles.map((principle) => (
+        <li class="grid grid-cols-[auto_1fr] items-start gap-4 border-t border-brand-line pt-6 sm:gap-5">
+          <img src={principle.image} alt={principle.imageAlt} width="512" height="512" loading="lazy" decoding="async" class="size-14 rounded-xl object-cover sm:size-16" />
           <div><h3 class="text-xl">{principle.title}</h3><p class="mt-2 text-sm leading-relaxed text-brand-quiet">{principle.text}</p></div>
         </li>
       ))}
@@ -132,27 +136,14 @@ const posts = (await getCollection('blog'))
 </section>
 
 <section class="bg-white py-20 sm:py-24">
-  <div class="page-container grid items-start gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16">
-    <div>
+  <div class="page-container">
+    <div class="mx-auto max-w-2xl text-center">
       <Badge tone="green" icon="award">Formación</Badge>
       <h2 class="mt-4 text-3xl leading-tight tracking-[-0.015em] sm:text-4xl">Preparación con un marco claro</h2>
-      <p class="mt-5 max-w-lg text-sm leading-relaxed text-brand-quiet sm:text-[15px]">Inteligencia emocional, altas capacidades y metodología Geniotipo. Los títulos y la credencial digital se comprueban en Sobre mí.</p>
-      <Button href="/sobre-mi#formacion" variant="ghost" class="mt-6 -ml-3" arrow>Ver credenciales verificables</Button>
     </div>
-    <ul class="divide-y divide-brand-line border-y border-brand-line">
-      <li class="py-5">
-        <strong class="block text-sm text-brand-ink">Programa Avanzado en Inteligencia Emocional con Especialización en Educación Emocional</strong>
-        <span class="mt-1 block text-sm text-brand-quiet">UNIR · 2025</span>
-      </li>
-      <li class="py-5">
-        <strong class="block text-sm text-brand-ink">Certificado en Metodología Geniotipo y Psicogenium</strong>
-        <span class="mt-1 block text-sm text-brand-quiet">Tony Estruch, fundador del Geniotipo · 2025</span>
-      </li>
-      <li class="py-5">
-        <strong class="block text-sm text-brand-ink">Máster de Formación Permanente en Altas Capacidades y Desarrollo del Talento</strong>
-        <span class="mt-1 block text-sm text-brand-quiet">UNIR · 2026</span>
-      </li>
-    </ul>
+    <div class="mt-10">
+      <FormationPillars />
+    </div>
   </div>
 </section>
 
@@ -170,7 +161,8 @@ const posts = (await getCollection('blog'))
 
 <section class="cta-pattern py-16 sm:py-20">
   <div class="page-container">
-    <div class="rounded-[2rem] border border-brand-line bg-white px-6 py-10 text-center shadow-ambient sm:px-12 sm:py-14">
+      <div class="rounded-[2rem] border border-brand-line bg-white px-6 py-10 text-center shadow-ambient sm:px-12 sm:py-14">
+      <img src="/icons/geniotipo-cta.webp" alt="Brote creciendo como símbolo de un primer paso" width="512" height="512" loading="lazy" decoding="async" class="mx-auto mb-5 size-24 rounded-2xl object-cover" />
       <h2 class="mx-auto max-w-3xl text-4xl sm:text-5xl">Empieza por el recorrido que hoy tiene sentido para ti</h2>
       <p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-brand-quiet">Puedes conocer el Geniotipo, explorar el acompañamiento familiar o descubrir el coaching para adultos con altas capacidades.</p>
       <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
