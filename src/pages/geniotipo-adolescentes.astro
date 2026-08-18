@@ -34,7 +34,11 @@ const faqItems = [
   description="Geniotipo para adolescentes mayores de 14 años. El test gratuito indica su geniotipo matriz; el mapa y su interpretación se reciben en sesión."
   canonicalPath="/geniotipo-adolescentes"
 >
-  <PageHero badge="Geniotipo para adolescentes" description="Cuando tu hijo no sabe qué estudiar, conocer sus capacidades puede darle un punto de partida sin decidir por él.">
+  <PageHero
+    badge="Geniotipo para adolescentes"
+    description="Cuando tu hijo no sabe qué estudiar, conocer sus capacidades puede darle un punto de partida sin decidir por él."
+    backgroundSrc="/cabecera/geniotipo-adolescentes.webp"
+  >
     Ayuda a tu hijo a reconocer su talento sin decidir por él
   </PageHero>
 
@@ -119,10 +123,17 @@ const faqItems = [
     </div>
   </section>
 
-  <section class="bg-white py-20 sm:py-24">
-    <div class="page-container grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
-      <div><h2 class="text-3xl sm:text-4xl">El papel de Mary</h2><p class="mt-4 text-sm leading-relaxed text-brand-quiet">Mary explica el mapa, da espacio a la mirada del adolescente y ayuda a la familia a escuchar sus capacidades sin decidir por él.</p><Button href="/sobre-mi" variant="ghost" class="mt-4 -ml-3" arrow>Conoce a Mary</Button></div>
-      <div class="bg-brand-mist p-7 sm:p-9"><h3 class="text-2xl">Un límite importante</h3><p class="mt-4 text-sm leading-relaxed text-brand-quiet">La sesión no recomienda asignaturas o carreras, no evalúa altas capacidades y no sustituye orientación académica, psicopedagógica o psicológica cuando sea necesaria.</p></div>
+  <section class="bg-white py-12 sm:py-16" aria-labelledby="papel-mary-adolescentes">
+    <div class="page-container grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
+      <div>
+        <h2 id="papel-mary-adolescentes" class="text-xl leading-tight tracking-[-0.015em] sm:text-2xl">El papel de Mary</h2>
+        <p class="mt-2 max-w-xl text-sm leading-relaxed text-brand-quiet">Mary explica el mapa, da espacio a la mirada del adolescente y ayuda a la familia a escuchar sus capacidades sin decidir por él.</p>
+        <Button href="/sobre-mi" variant="ghost" size="sm" class="-ml-3 mt-3" arrow>Conoce a Mary</Button>
+      </div>
+      <div class="border-t border-brand-line pt-6 lg:border-t-0 lg:border-l lg:pl-10 lg:pt-0">
+        <h3 class="text-sm font-semibold tracking-[-0.01em] text-brand-ink">Un límite importante</h3>
+        <p class="mt-2 max-w-xl text-sm leading-relaxed text-brand-quiet">La sesión no recomienda asignaturas o carreras, no evalúa altas capacidades y no sustituye orientación académica, psicopedagógica o psicológica cuando sea necesaria.</p>
+      </div>
     </div>
   </section>
 

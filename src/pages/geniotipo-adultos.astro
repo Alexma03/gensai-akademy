@@ -33,7 +33,12 @@ const faqItems = [
   description="Geniotipo para adultos. El test gratuito indica tu geniotipo matriz; el mapa y su interpretación se reciben en una sesión individual."
   canonicalPath="/geniotipo-adultos"
 >
-  <PageHero badge="Geniotipo para adultos" description="Comprender cómo aparecen tus capacidades puede ayudarte a ordenar intereses, proyectos y decisiones sin buscar una respuesta mágica.">
+  <PageHero
+    badge="Geniotipo para adultos"
+    description="Comprender cómo aparecen tus capacidades puede ayudarte a ordenar intereses, proyectos y decisiones sin buscar una respuesta mágica."
+    backgroundSrc="/cabecera/geniotipo-adultos.webp"
+    backgroundPosition="center"
+  >
     Comprende tus capacidades y toma decisiones con más claridad
   </PageHero>
 
@@ -118,10 +123,17 @@ const faqItems = [
     </div>
   </section>
 
-  <section class="bg-white py-20 sm:py-24">
-    <div class="page-container grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
-      <div><h2 class="text-3xl sm:text-4xl">El papel de Mary</h2><p class="mt-4 text-sm leading-relaxed text-brand-quiet">Mary explica el mapa y te acompaña a relacionarlo con tus preguntas actuales, sin convertir el resultado en una etiqueta.</p><Button href="/sobre-mi" variant="ghost" class="mt-4 -ml-3" arrow>Conoce a Mary</Button></div>
-      <div class="bg-brand-mist p-7 sm:p-9"><h3 class="text-2xl">Un límite importante</h3><p class="mt-4 text-sm leading-relaxed text-brand-quiet">La sesión no diagnostica altas capacidades, no sustituye un proceso psicológico y no ofrece orientación laboral especializada cuando sea necesaria.</p></div>
+  <section class="bg-white py-12 sm:py-16" aria-labelledby="papel-mary-adultos">
+    <div class="page-container grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
+      <div>
+        <h2 id="papel-mary-adultos" class="text-xl leading-tight tracking-[-0.015em] sm:text-2xl">El papel de Mary</h2>
+        <p class="mt-2 max-w-xl text-sm leading-relaxed text-brand-quiet">Mary explica el mapa y te acompaña a relacionarlo con tus preguntas actuales, sin convertir el resultado en una etiqueta.</p>
+        <Button href="/sobre-mi" variant="ghost" size="sm" class="-ml-3 mt-3" arrow>Conoce a Mary</Button>
+      </div>
+      <div class="border-t border-brand-line pt-6 lg:border-t-0 lg:border-l lg:pl-10 lg:pt-0">
+        <h3 class="text-sm font-semibold tracking-[-0.01em] text-brand-ink">Un límite importante</h3>
+        <p class="mt-2 max-w-xl text-sm leading-relaxed text-brand-quiet">La sesión no diagnostica altas capacidades, no sustituye un proceso psicológico y no ofrece orientación laboral especializada cuando sea necesaria.</p>
+      </div>
     </div>
   </section>
 

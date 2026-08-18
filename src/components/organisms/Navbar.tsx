@@ -55,9 +55,24 @@ export default function Navbar({ currentPath }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
+  const [overPhoto, setOverPhoto] = useState(false);
 
   useEffect(() => {
-    const updateScrolled = () => setScrolled(window.scrollY > 12);
+    const updateOverPhoto = () => {
+      const hero = document.querySelector<HTMLElement>('.page-hero--photo');
+      if (!hero) {
+        setOverPhoto(false);
+        return;
+      }
+      const navH = navRef.current?.offsetHeight ?? 0;
+      const heroTop = hero.getBoundingClientRect().top;
+      const heroBottom = hero.getBoundingClientRect().bottom;
+      setOverPhoto(heroTop <= navH - 8 && heroBottom > 24);
+    };
+    const updateScrolled = () => {
+      setScrolled(window.scrollY > 12);
+      updateOverPhoto();
+    };
     const closeOnEscape = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         const trigger = navRef.current?.querySelector<HTMLButtonElement>('[aria-expanded="true"]');
@@ -77,15 +92,19 @@ export default function Navbar({ currentPath }: NavbarProps) {
 
     updateScrolled();
     syncNavHeight();
-    const heightObserver = new ResizeObserver(syncNavHeight);
+    const heroEl = document.querySelector<HTMLElement>('.page-hero--photo');
+    const heightObserver = new ResizeObserver(() => { syncNavHeight(); updateOverPhoto(); });
     if (navRef.current) heightObserver.observe(navRef.current);
+    if (heroEl) heightObserver.observe(heroEl);
     window.addEventListener('scroll', updateScrolled, { passive: true });
+    window.addEventListener('resize', updateOverPhoto);
     window.addEventListener('keydown', closeOnEscape);
     window.addEventListener('pointerdown', closeOnOutsideClick);
 
     return () => {
       heightObserver.disconnect();
       window.removeEventListener('scroll', updateScrolled);
+      window.removeEventListener('resize', updateOverPhoto);
       window.removeEventListener('keydown', closeOnEscape);
       window.removeEventListener('pointerdown', closeOnOutsideClick);
     };
@@ -104,17 +123,24 @@ export default function Navbar({ currentPath }: NavbarProps) {
   const isSectionActive = (section: (typeof sections)[number]) => section.items.some((item) => currentPath === item.href);
   const compact = scrolled;
   const navMotion = 'duration-300 ease-gensai';
-  const linkClass = (active: boolean) =>
-    `inline-flex items-center gap-1 rounded-full font-medium tracking-[-0.01em] transition-[color,background-color,padding,font-size,min-height] ${navMotion} ${compact ? 'min-h-10 px-3 py-2 text-[13px] xl:px-3.5' : 'min-h-11 px-3.5 py-2.5 text-sm xl:px-4'} ${active ? 'bg-brand-green/20 text-brand-green-accessible-deep' : 'text-brand-slate hover:bg-brand-green/20 hover:text-brand-ink'}`;
+  const solidBg = compact || mobileOpen;
+  const overPhotoLight = overPhoto && !solidBg;
+  const linkClass = (active: boolean) => {
+    const base = `inline-flex items-center gap-1 rounded-full font-medium tracking-[-0.01em] transition-[color,background-color,padding,font-size,min-height] ${navMotion} ${compact ? 'min-h-10 px-3 py-2 text-[13px] xl:px-3.5' : 'min-h-11 px-3.5 py-2.5 text-sm xl:px-4'}`;
+    if (overPhotoLight) {
+      return `${base} ${active ? 'bg-white/14 text-white' : 'text-white/95 hover:bg-white/10 hover:text-white'}`;
+    }
+    return `${base} ${active ? 'bg-brand-green/20 text-brand-green-accessible-deep' : 'text-brand-slate hover:bg-brand-green/20 hover:text-brand-ink'}`;
+  };
 
   return (
-    <nav ref={navRef} aria-label="Navegación principal" className={`fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color,box-shadow,backdrop-filter] ${navMotion} ${scrolled || mobileOpen || openMenu ? 'border-brand-line bg-[#fdfefb]/95 shadow-nav backdrop-blur-md' : 'border-transparent bg-transparent'}`}>
+    <nav ref={navRef} aria-label="Navegación principal" className={`fixed inset-x-0 top-0 z-50 border-b transition-[border-color,box-shadow,backdrop-filter,background-color] ${navMotion} ${solidBg ? 'border-brand-line bg-[#fdfefb]/95 shadow-nav backdrop-blur-md' : 'border-transparent bg-transparent'}`}>
       <div className={`mx-auto flex w-[min(100%-2rem,80rem)] items-center justify-between transition-[padding] ${navMotion} ${compact ? 'py-1.5' : 'py-3 sm:py-3.5'}`}>
         <a href="/" aria-label="Mary Garzón y Gensai Akademy, inicio" className={`inline-flex items-center transition-[gap] ${navMotion} ${compact ? 'gap-3' : 'gap-4'}`}>
           <img src="/logo.jpeg" alt="" width="500" height="500" className={`object-contain transition-[width,height] ${navMotion} ${compact ? 'size-9 sm:size-10' : 'size-16 sm:size-[4.5rem]'}`} />
           <span className="hidden sm:block">
-            <span className={`block font-serif font-medium tracking-[-0.01em] text-brand-ink transition-[font-size] ${navMotion} ${compact ? 'text-[15px]' : 'text-xl sm:text-2xl'}`}>Mary Garzón</span>
-            <span className={`block font-semibold tracking-[0.08em] text-brand-green-accessible transition-[font-size] ${navMotion} ${compact ? 'text-[10px]' : 'text-[13px] sm:text-sm'}`}>GENSAI AKADEMY</span>
+            <span className={`block font-serif font-medium tracking-[-0.01em] transition-[color,font-size,text-shadow] ${navMotion} ${overPhotoLight ? 'text-white [text-shadow:0_1px_10px_rgb(0_0_0/0.45),0_1px_2px_rgb(0_0_0/0.35)]' : 'text-brand-ink'} ${compact ? 'text-[15px]' : 'text-xl sm:text-2xl'}`}>Mary Garzón</span>
+            <span className={`block font-semibold tracking-[0.08em] transition-[color,font-size,text-shadow] ${navMotion} ${overPhotoLight ? 'text-white/90 [text-shadow:0_1px_8px_rgb(0_0_0/0.4)]' : 'text-brand-green-accessible'} ${compact ? 'text-[10px]' : 'text-[13px] sm:text-sm'}`}>GENSAI AKADEMY</span>
           </span>
         </a>
 
@@ -178,7 +204,7 @@ export default function Navbar({ currentPath }: NavbarProps) {
             setMobileOpen((open) => !open);
             setOpenMenu(null);
           }}
-          className="grid size-10 place-items-center rounded-full text-brand-slate transition-colors hover:bg-brand-green/20 lg:hidden"
+          className={`grid size-10 place-items-center rounded-full transition-colors lg:hidden ${overPhotoLight ? 'text-white hover:bg-white/10' : 'text-brand-slate hover:bg-brand-green/20'}`}
         >
           <MenuIcon close={mobileOpen} />
         </button>
