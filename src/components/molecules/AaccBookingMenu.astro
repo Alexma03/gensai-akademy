@@ -1,0 +1,127 @@
+---
+import Icon from '../atoms/Icon.astro';
+
+interface Props {
+  sessionLink: string;
+  sessionNamespace: string;
+  packLink: string;
+  packNamespace: string;
+  tone?: 'green' | 'pink';
+}
+
+const {
+  sessionLink,
+  sessionNamespace,
+  packLink,
+  packNamespace,
+  tone = 'green',
+} = Astro.props;
+
+const summaryClass =
+  tone === 'pink'
+    ? 'bg-brand-pink-accessible text-white hover:bg-brand-pink-accessible-deep focus-visible:ring-brand-pink-accessible'
+    : 'bg-brand-green-accessible text-white hover:bg-brand-green-accessible-deep focus-visible:ring-brand-green-accessible';
+
+const brand = tone === 'pink' ? '#A93A5F' : '#3F741F';
+const brandEmphasis = tone === 'pink' ? '#812642' : '#2F5817';
+const calConfig = '{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}';
+const targets = [
+  { calLink: sessionLink, namespace: sessionNamespace },
+  { calLink: packLink, namespace: packNamespace },
+];
+---
+
+<div class="relative w-full">
+  <details class="group w-full">
+    <summary
+      class:list={[
+        'flex min-h-11 w-full cursor-pointer list-none items-center justify-center gap-2 rounded-full px-6 py-3 text-[13px] font-semibold tracking-[-0.01em] transition duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 [&::-webkit-details-marker]:hidden',
+        summaryClass,
+      ]}
+    >
+      Reservar
+      <Icon name="chevron-down" size={16} class="transition-transform duration-200 group-open:rotate-180" />
+    </summary>
+    <div class="absolute z-30 mt-2 w-full overflow-hidden rounded-2xl border border-brand-line bg-white p-2 shadow-ambient">
+      <button
+        type="button"
+        class="w-full rounded-xl px-4 py-3 text-left transition hover:bg-brand-mist focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green-accessible"
+        data-cal-link={sessionLink}
+        data-cal-namespace={sessionNamespace}
+        data-cal-config={calConfig}
+      >
+        <span class="block font-semibold text-brand-ink">Sesión suelta</span>
+        <span class="mt-0.5 block text-xs leading-relaxed text-brand-quiet">65 € · 60 minutos · pagas al confirmar</span>
+      </button>
+      <button
+        type="button"
+        class="mt-1 w-full rounded-xl px-4 py-3 text-left transition hover:bg-brand-mist focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green-accessible"
+        data-cal-link={packLink}
+        data-cal-namespace={packNamespace}
+        data-cal-config={calConfig}
+      >
+        <span class="block font-semibold text-brand-ink">Paquete de 4 sesiones</span>
+        <span class="mt-0.5 block text-xs leading-relaxed text-brand-quiet">240 € · reservas la primera ahora; las otras tres se agendan con Mary</span>
+      </button>
+    </div>
+  </details>
+</div>
+
+<script is:inline define:vars={{ targets, brand, brandEmphasis }}>
+  (function (C, A, L) {
+    var p = function (a, ar) {
+      a.q.push(ar);
+    };
+    var d = C.document;
+    C.Cal =
+      C.Cal ||
+      function () {
+        var cal = C.Cal;
+        var ar = arguments;
+        if (!cal.loaded) {
+          cal.ns = {};
+          cal.q = cal.q || [];
+          d.head.appendChild(d.createElement('script')).src = A;
+          cal.loaded = true;
+        }
+        if (ar[0] === L) {
+          var api = function () {
+            p(api, arguments);
+          };
+          var initNamespace = ar[1];
+          api.q = api.q || [];
+          if (typeof initNamespace === 'string') {
+            cal.ns[initNamespace] = cal.ns[initNamespace] || api;
+            p(cal.ns[initNamespace], ar);
+            p(cal, ['initNamespace', initNamespace]);
+          } else p(cal, ar);
+          return;
+        }
+        p(cal, ar);
+      };
+  })(window, 'https://app.cal.com/embed/embed.js', 'init');
+
+  Cal.config = Cal.config || {};
+  Cal.config.forwardQueryParams = true;
+
+  targets.forEach(function (target) {
+    Cal('init', target.namespace, { origin: 'https://app.cal.com' });
+    Cal.ns[target.namespace]('ui', {
+      hideEventTypeDetails: false,
+      layout: 'month_view',
+      theme: 'light',
+      cssVarsPerTheme: {
+        light: {
+          'cal-brand': brand,
+          'cal-brand-emphasis': brandEmphasis,
+          'cal-brand-text': '#FFFFFF',
+          'cal-bg': '#FFFFFF',
+          'cal-bg-muted': '#F4F8F0',
+          'cal-border-booker': '#E3E9DD',
+          'cal-border-booker-width': '1px',
+          radius: '0.75rem',
+        },
+      },
+    });
+  });
+</script>

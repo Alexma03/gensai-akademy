@@ -63,8 +63,6 @@ src/
 
 ## Configuración pendiente
 
-1. **WhatsApp Business**: incorporar el enlace profesional en `WHATSAPP_URL` de `src/config/links.ts`.
-2. **Reserva Geniotipo**: incorporar el enlace de pago/reserva en `GENIOTIPO_BOOKING_URL` de `src/config/links.ts`.
-3. **Foto de Mary**: sustituir los placeholders de `src/components/HomeContent.astro` y `src/pages/sobre-mi.astro`.
-4. **Legal**: completar NIF, domicilio, contacto y revisión profesional de los cuatro borradores antes de retirar `noindex`.
-5. Antes de publicar en otro dominio, actualizar `site` en `astro.config.mjs` y las URLs de `src/layouts/BaseLayout.astro`.
+1. **Foto de Mary**: sustituir los placeholders de `src/components/HomeContent.astro` y `src/pages/sobre-mi.astro`.
+2. **Legal**: completar NIF, domicilio, contacto y revisión profesional de los cuatro borradores antes de retirar `noindex`.
+3. Antes de publicar en otro dominio, actualizar `site` en `astro.config.mjs` y las URLs de `src/layouts/BaseLayout.astro`.

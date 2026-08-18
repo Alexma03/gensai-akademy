@@ -1,10 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/atoms/Button.astro';
-import Icon from '../components/atoms/Icon.astro';
 import PageHero from '../components/molecules/PageHero.astro';
 import FAQ from '../components/molecules/FAQ.astro';
 import ServiceCard from '../components/molecules/ServiceCard.astro';
+import GeniotipoSessionBooking from '../components/molecules/GeniotipoSessionBooking.astro';
 import { GENIOTIPO_TEST_URL } from '../config/links';
 
 const GENIOTIPO_VALIDATION_URL = 'https://fundaciongeniotipo.org/validacion-test-geniotipo/';
@@ -49,7 +49,7 @@ const faqItems = [
   { q: '¿Qué diferencia hay entre el geniotipo matriz y el mapa?', a: 'El geniotipo matriz es el resultado inicial del test. El mapa ofrece una visión más amplia y permite interpretar cómo se relacionan los distintos geniotipos entre sí.' },
   { q: '¿El test del Geniotipo tiene validación psicométrica?', a: 'Sí. La Fundación Geniotipo publicó en 2023 una segunda validación independiente realizada sobre 13.727 participantes.' },
   { q: '¿Para quién es este servicio?', a: 'Hay un recorrido para adolescentes mayores de 14 años y menores de 18, acompañados por sus tutores, y otro recorrido individual para adultos.' },
-  { q: '¿Cuánto cuesta la lectura del mapa?', a: 'La sesión online dura 60 minutos y cuesta 100 €. Incluye la entrega del mapa y su interpretación.' },
+  { q: '¿Cuánto cuesta la lectura del mapa?', a: 'La sesión online dura 60 minutos y cuesta 100 €. Incluye la entrega del mapa y su interpretación. Se reserva y paga en el calendario de esta página.' },
   { q: '¿Es una evaluación psicológica o de altas capacidades?', a: 'No. El Geniotipo se utiliza aquí como herramienta de autoconocimiento y exploración del talento. No realiza diagnósticos ni sustituye una evaluación profesional.' },
 ];
 ---
@@ -77,8 +77,9 @@ const faqItems = [
           <p>Con el enlace de Mary, el test gratuito te indica cuál es tu geniotipo matriz. Ese resultado es el punto de partida. El Mapa del Geniotipo, su lectura y la explicación de cómo interactúan los distintos geniotipos se reciben al contratar una sesión.</p>
         </div>
         <p class="mt-6 rounded-xl border-l-2 border-brand-green-accessible bg-brand-mist px-5 py-4 text-sm font-semibold leading-relaxed text-brand-ink">El Geniotipo no define toda tu identidad ni determina qué debes hacer. Sirve para abrir preguntas más útiles sobre tu talento.</p>
-        <div class="mt-6">
+        <div class="mt-6 flex flex-wrap gap-3">
           <Button href={GENIOTIPO_TEST_URL} external variant="green" size="lg" arrow>Haz el test gratuito</Button>
+          <Button href="#sesion" variant="outline-green" size="lg">Reservar la sesión</Button>
         </div>
       </div>
       <img
@@ -135,31 +136,11 @@ const faqItems = [
     </div>
   </section>
 
-  <section class="border-y border-brand-line bg-brand-mist py-20 sm:py-24">
-    <div class="page-container grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
-      <div>
-        <img src="/icons/geniotipo-interpretacion.webp" alt="Mapa conectado con un símbolo de conversación" width="512" height="512" loading="lazy" decoding="async" class="mb-5 size-24 rounded-2xl object-cover" />
-        <h2 class="text-3xl leading-tight tracking-[-0.015em] sm:text-4xl">Qué incluye la lectura del mapa</h2>
-        <p class="mt-5 max-w-2xl text-sm leading-relaxed text-brand-quiet sm:text-[15px]">La sesión convierte el resultado inicial en una conversación comprensible y conectada con la etapa que estás viviendo.</p>
-        <ul class="mt-7 space-y-3.5">
-          {mapIncludes.map((item) => <li class="flex items-start gap-3"><Icon name="check-circle" size={18} class="mt-0.5 shrink-0 text-brand-green-accessible" /><span class="text-sm leading-relaxed text-brand-quiet">{item}</span></li>)}
-        </ul>
-      </div>
-      <aside class="bg-white p-7 shadow-ambient sm:p-9">
-        <h3 class="text-2xl">Mapa e interpretación</h3>
-        <dl class="mt-6 divide-y divide-brand-line text-sm">
-          <div class="flex justify-between gap-4 py-3"><dt>Test inicial</dt><dd class="font-semibold text-brand-ink">Gratuito</dd></div>
-          <div class="flex justify-between gap-4 py-3"><dt>Sesión</dt><dd class="font-semibold text-brand-ink">60 minutos</dd></div>
-          <div class="flex justify-between gap-4 py-3"><dt>Formato</dt><dd class="font-semibold text-brand-ink">Google Meet</dd></div>
-          <div class="flex justify-between gap-4 py-3"><dt>Precio</dt><dd class="font-semibold text-brand-ink">100 €</dd></div>
-        </dl>
-        <div class="mt-7 grid gap-3">
-          <Button href="/geniotipo-adolescentes" variant="pink" class="w-full" arrow>Recorrido para adolescentes</Button>
-          <Button href="/geniotipo-adultos" variant="outline-green" class="w-full" arrow>Recorrido para adultos</Button>
-        </div>
-      </aside>
-    </div>
-  </section>
+  <GeniotipoSessionBooking
+    heading="Qué incluye la lectura del mapa"
+    description="La sesión convierte el resultado inicial en una conversación comprensible. Es la misma reserva para adolescentes con tutores y para adultos."
+    includes={mapIncludes}
+  />
 
   <section class="bg-white py-12 sm:py-16" aria-labelledby="interpretacion-mary">
     <div class="page-container grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
@@ -182,8 +163,11 @@ const faqItems = [
       <div class="rounded-[2rem] border border-brand-line bg-white px-6 py-10 text-center shadow-ambient sm:px-12 sm:py-14">
         <img src="/icons/geniotipo-cta.webp" alt="Brote creciendo como símbolo de un primer paso" width="512" height="512" loading="lazy" decoding="async" class="mx-auto mb-5 size-24 rounded-2xl object-cover" />
         <h2 class="mx-auto max-w-3xl text-4xl sm:text-5xl">Empieza por conocer tu geniotipo matriz</h2>
-        <p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-brand-quiet">El test es gratuito. Si después quieres recibir el mapa y comprenderlo, elige el recorrido que corresponda a tu etapa vital.</p>
-        <Button href={GENIOTIPO_TEST_URL} external variant="green" size="lg" class="mt-8" arrow>Haz el test del Geniotipo</Button>
+        <p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-brand-quiet">El test es gratuito. Si después quieres recibir el mapa y comprenderlo, reserva la sesión o elige el recorrido que corresponda a tu etapa vital.</p>
+        <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <Button href={GENIOTIPO_TEST_URL} external variant="green" size="lg" arrow>Haz el test del Geniotipo</Button>
+          <Button href="#sesion" variant="outline-green" size="lg">Reservar la sesión</Button>
+        </div>
       </div>
     </div>
   </section>

@@ -4,7 +4,8 @@ import Button from '../components/atoms/Button.astro';
 import Icon from '../components/atoms/Icon.astro';
 import PageHero from '../components/molecules/PageHero.astro';
 import FAQ from '../components/molecules/FAQ.astro';
-import { WHATSAPP_URL } from '../config/links';
+import AaccBookingMenu from '../components/molecules/AaccBookingMenu.astro';
+import { AACC_ADULTOS_CAL_LINK, AACC_ADULTOS_PACK_CAL_LINK } from '../config/links';
 
 const outcomes = [
   { title: 'Comprender', text: 'Dar contexto a tu manera de pensar, sentir, aprender y relacionarte sin reducirla a una etiqueta.' },
@@ -14,10 +15,10 @@ const outcomes = [
 
 const faqItems = [
   { q: '¿Necesito una identificación oficial de altas capacidades?', a: 'Sí. Este servicio está dirigido a personas adultas que ya cuentan con una identificación oficial. Mary no evalúa ni confirma altas capacidades.' },
-  { q: '¿Puedo contratar una única sesión?', a: 'Sí. La primera sesión cuesta 65 € y puede ser suficiente para ordenar una situación concreta. Si quieres continuidad, puedes contratar sesiones sueltas o un paquete de cuatro por 240 €.' },
+  { q: '¿Puedo contratar una única sesión?', a: 'Sí. La sesión suelta cuesta 65 €, dura 60 minutos y se reserva y paga al abrir el calendario. Puede ser suficiente para ordenar una situación concreta. Si quieres continuidad, puedes contratar más sesiones sueltas o el paquete de cuatro por 240 €.' },
   { q: '¿Qué puedo trabajar en las sesiones?', a: 'Claridad personal, propósito, prioridades, toma de decisiones, objetivos, comunicación y habilidades emocionales aplicadas a situaciones concretas.' },
   { q: '¿Es terapia o tratamiento emocional?', a: 'No. Es coaching y educación emocional. No diagnostica, trata síntomas ni sustituye atención psicológica o sanitaria.' },
-  { q: '¿Cómo funcionan los paquetes?', a: 'El paquete incluye cuatro sesiones por 240 €, tiene una validez de seis meses y permite reservar cada sesión mediante un enlace privado.' },
+  { q: '¿Cómo funciona el paquete de cuatro sesiones?', a: 'Cuesta 240 €, incluye cuatro sesiones de 60 minutos y es válido durante seis meses. Al pagarlo eliges ya la fecha de la primera sesión. Las otras tres las agendáis después con Mary, sin un nuevo cobro. No es una suscripción ni se renueva sola.' },
   { q: '¿Puedo cambiar una cita?', a: 'Sí, sin coste con al menos 24 horas de antelación. Con menos plazo o en caso de ausencia se considera consumida, salvo causa excepcional.' },
 ];
 ---
@@ -57,14 +58,14 @@ const faqItems = [
     </div>
   </section>
 
-  <section class="bg-white py-20 sm:py-24">
+  <section id="reservar" class="bg-white py-20 sm:py-24">
     <div class="page-container grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
       <div>
         <h2 class="text-3xl leading-tight tracking-[-0.015em] sm:text-4xl">Cómo empezamos</h2>
         <ol class="mt-7 space-y-6">
-          <li class="grid grid-cols-[auto_1fr] gap-4"><Icon name="send" size={20} class="mt-1 text-brand-green-accessible" /><div><h3 class="text-xl">Cuéntame tu contexto</h3><p class="mt-2 text-sm leading-relaxed text-brand-quiet">Por WhatsApp indicas país o zona horaria, confirmas la identificación oficial y explicas brevemente qué quieres trabajar.</p></div></li>
-          <li class="grid grid-cols-[auto_1fr] gap-4"><Icon name="check-circle" size={20} class="mt-1 text-brand-green-accessible" /><div><h3 class="text-xl">Confirmamos el encaje</h3><p class="mt-2 text-sm leading-relaxed text-brand-quiet">Mary te dirá con honestidad si puede ayudarte y qué enfoque propone antes de que realices el pago.</p></div></li>
-          <li class="grid grid-cols-[auto_1fr] gap-4"><Icon name="target" size={20} class="mt-1 text-brand-green-accessible" /><div><h3 class="text-xl">Concretamos un objetivo</h3><p class="mt-2 text-sm leading-relaxed text-brand-quiet">La primera sesión ordena tu situación y permite decidir si necesitas continuidad.</p></div></li>
+          <li class="grid grid-cols-[auto_1fr] gap-4"><Icon name="calendar" size={20} class="mt-1 text-brand-green-accessible" /><div><h3 class="text-xl">Elige sesión suelta o paquete</h3><p class="mt-2 text-sm leading-relaxed text-brand-quiet">En Reservar eliges una sesión de 65 € o el paquete de 240 €. El calendario se abre al confirmar la opción.</p></div></li>
+          <li class="grid grid-cols-[auto_1fr] gap-4"><Icon name="check-circle" size={20} class="mt-1 text-brand-green-accessible" /><div><h3 class="text-xl">Confirmas fecha y pago</h3><p class="mt-2 text-sm leading-relaxed text-brand-quiet">Al confirmar recibes la cita, el enlace de Google Meet y el cobro correspondiente: 65 € o 240 €.</p></div></li>
+          <li class="grid grid-cols-[auto_1fr] gap-4"><Icon name="target" size={20} class="mt-1 text-brand-green-accessible" /><div><h3 class="text-xl">Continuamos si lo necesitas</h3><p class="mt-2 text-sm leading-relaxed text-brand-quiet">Con el paquete, las otras tres sesiones se agendan después con Mary, dentro de seis meses y sin un nuevo cobro.</p></div></li>
         </ol>
       </div>
       <aside class="bg-brand-mist p-7 sm:p-9">
@@ -72,16 +73,22 @@ const faqItems = [
         <dl class="mt-6 divide-y divide-brand-line text-sm">
           <div class="flex justify-between gap-4 py-3"><dt>Duración</dt><dd class="font-semibold text-brand-ink">60 minutos</dd></div>
           <div class="flex justify-between gap-4 py-3"><dt>Formato</dt><dd class="font-semibold text-brand-ink">Google Meet</dd></div>
-          <div class="flex justify-between gap-4 py-3"><dt>Precio</dt><dd class="font-semibold text-brand-ink">65 €</dd></div>
+          <div class="flex justify-between gap-4 py-3"><dt>Sesión suelta</dt><dd class="font-semibold text-brand-ink">65 €</dd></div>
           <div class="flex justify-between gap-4 py-3"><dt>Paquete de 4</dt><dd class="font-semibold text-brand-ink">240 €</dd></div>
         </dl>
-        <Button href={WHATSAPP_URL} disabled={!WHATSAPP_URL} external={Boolean(WHATSAPP_URL)} variant="green" class="mt-7 w-full" arrow>Cuéntame tu caso</Button>
-        {!WHATSAPP_URL && <p class="mt-3 text-xs leading-relaxed text-brand-quiet">El número profesional de WhatsApp se incorporará antes de publicar.</p>}
+        <div class="mt-7">
+          <AaccBookingMenu
+            sessionLink={AACC_ADULTOS_CAL_LINK}
+            sessionNamespace="aacc-adultos"
+            packLink={AACC_ADULTOS_PACK_CAL_LINK}
+            packNamespace="aacc-adultos-pack"
+          />
+        </div>
       </aside>
     </div>
   </section>
 
-  <section class="border-y border-brand-line bg-brand-mist py-20 sm:py-24">
+  <section class="bg-white py-20 sm:py-24">
     <div class="page-container grid gap-12 lg:grid-cols-2 lg:gap-16">
       <div><h2 class="text-3xl sm:text-4xl">Qué puede formar parte del proceso</h2><p class="mt-5 text-sm leading-relaxed text-brand-quiet">Cada acompañamiento se organiza alrededor de un objetivo real. Podemos trabajar claridad profesional o personal, propósito, multipotencialidad, comunicación, toma de decisiones y habilidades emocionales.</p></div>
       <ul class="space-y-4">
@@ -106,8 +113,15 @@ const faqItems = [
         <div class="rounded-[2rem] border border-brand-line bg-white px-6 py-10 text-center shadow-ambient sm:px-12 sm:py-14">
         <img src="/icons/geniotipo-cta.webp" alt="Brote creciendo como símbolo de un primer paso" width="512" height="512" loading="lazy" decoding="async" class="mx-auto mb-5 size-24 rounded-2xl object-cover" />
         <h2 class="mx-auto max-w-3xl text-4xl sm:text-5xl">Convierte lo que sabes de ti en un siguiente paso</h2>
-        <p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-brand-quiet">Cuéntale a Mary qué quieres trabajar. Antes de pagar, confirmará si puede ayudarte y cómo abordaría el proceso.</p>
-        <Button href={WHATSAPP_URL} disabled={!WHATSAPP_URL} external={Boolean(WHATSAPP_URL)} variant="green" size="lg" class="mt-8" arrow>Escribir por WhatsApp</Button>
+        <p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-brand-quiet">Elige una sesión suelta o el paquete de cuatro. El calendario se abre al confirmar y pagas en ese momento.</p>
+        <div class="mx-auto mt-8 max-w-sm">
+          <AaccBookingMenu
+            sessionLink={AACC_ADULTOS_CAL_LINK}
+            sessionNamespace="aacc-adultos"
+            packLink={AACC_ADULTOS_PACK_CAL_LINK}
+            packNamespace="aacc-adultos-pack"
+          />
+        </div>
       </div>
     </div>
   </section>

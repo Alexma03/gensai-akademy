@@ -90,21 +90,17 @@ _Avoid_: mapa incluido en el test, interpretación gratuita, diagnóstico, prop�
 Necesidad y territorio de búsqueda desde el que una familia puede descubrir el Geniotipo; el servicio se presenta como un primer paso de autoconocimiento, no como orientación vocacional completa.
 _Avoid_: carrera perfecta, recomendación de estudios, decisión académica garantizada
 
-**Contacto de encaje por WhatsApp**:
-Conversación escrita desde una línea profesional separada de WhatsApp Business, previa al pago de los servicios AACC, en la que la persona aporta contexto mínimo y Mary confirma si puede ayudar y cómo abordar el caso; sustituye a la llamada inicial gratuita.
-_Avoid_: consulta gratuita, evaluación por WhatsApp, envío inicial de información clínica innecesaria
-
-**Reserva confirmada**:
-Enlace de Cal.com que Mary envía después de confirmar el encaje; permite elegir entre sus huecos reales, adaptar la zona horaria y recibir la notificación de la cita.
-_Avoid_: agenda manual por mensajes, llamada inicial gratuita, enlace público antes del filtro AACC
+**Reserva en Cal.com**:
+La persona elige fecha, paga y recibe la cita con Google Meet y la notificación por correo. En AACC puede elegir sesión suelta o paquete; el paquete agenda la primera sesión y las restantes se coordinan con Mary.
+_Avoid_: agenda manual por mensajes, llamada inicial gratuita, filtro previo por WhatsApp
 
 **Tarifa global**:
 Precio público único en euros para el servicio online, sin variantes iniciales por país: Geniotipo 100 €; sesión AACC 65 €; paquete AACC de cuatro sesiones 240 €.
 _Avoid_: precios ocultos, tarifa por ciudad, conversión manual a monedas latinoamericanas
 
 **Paquete AACC**:
-Compra anticipada de cuatro sesiones por 240 €, utilizables durante seis meses; Mary envía un enlace privado de reserva sin cobro y registra manualmente las sesiones consumidas.
-_Avoid_: suscripción, renovación automática, saldo indefinido
+Compra anticipada de cuatro sesiones por 240 €, utilizables durante seis meses. El enlace de Cal.com cobra el paquete y agenda la primera sesión; las tres restantes se reservan de forma manual con Mary.
+_Avoid_: suscripción, renovación automática, saldo indefinido, cuatro fechas independientes en un único checkout de Cal.com
 
 **Test del Geniotipo**:
 Entrada gratuita al embudo mediante el enlace identificado de Mary en la plataforma oficial; la persona completa el cuestionario y recibe su geniotipo matriz. El mapa, la interpretación y cómo interactúan los geniotipos se entregan solo al contratar la sesión.

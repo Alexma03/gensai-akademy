@@ -1,0 +1,34 @@
+---
+import Icon from '../atoms/Icon.astro';
+import CalInlineEmbed from './CalInlineEmbed.astro';
+import { GENIOTIPO_CAL_LINK } from '../../config/links';
+
+interface Props {
+  heading: string;
+  description: string;
+  includes: string[];
+  headingId?: string;
+}
+
+const { heading, description, includes, headingId = 'sesion-heading' } = Astro.props;
+---
+
+<section id="sesion" class="border-y border-brand-line bg-brand-mist py-20 sm:py-24" aria-labelledby={headingId}>
+  <div class="page-container">
+    <div class="mx-auto max-w-2xl">
+      <h2 id={headingId} class="text-center text-3xl leading-tight tracking-[-0.015em] sm:text-4xl">{heading}</h2>
+      <p class="mt-4 text-center text-sm leading-relaxed text-brand-quiet sm:text-[15px]">{description}</p>
+      <ul class="mt-8 space-y-3">
+        {includes.map((item) => (
+          <li class="flex items-start justify-center gap-3 text-center">
+            <Icon name="check-circle" size={18} class="mt-0.5 shrink-0 text-brand-green-accessible" />
+            <span class="text-sm leading-relaxed text-brand-quiet">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div class="mx-auto mt-10 max-w-5xl overflow-hidden rounded-2xl border border-brand-line bg-white p-3 shadow-ambient sm:p-5">
+      <CalInlineEmbed calLink={GENIOTIPO_CAL_LINK} namespace="mapa-geniotipo" />
+    </div>
+  </div>
+</section>
